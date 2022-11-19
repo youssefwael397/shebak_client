@@ -2,9 +2,9 @@ import "../styles/globals.css";
 import Head from "next/head";
 import Script from "next/script";
 import Layout from "../components/Layout";
-// import { Provider } from "react-redux";
-// import { store } from "../store/store";
-// import "antd/dist/antd.css";
+import { Provider } from "react-redux";
+import { store } from "../store/store";
+import "antd/dist/antd.css";
 import SignUp from "./signUp";
 
 function MyApp({ Component, pageProps }) {
@@ -26,11 +26,11 @@ function MyApp({ Component, pageProps }) {
       {/* <Script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"/> */}
 
 
-      {/* <Provider store={store}> */}
+      <Provider store={store}>
       <Layout>
           <Component {...pageProps} />
         </Layout>
-      {/* </Provider> */}
+      </Provider>
     </>
   );
 }
