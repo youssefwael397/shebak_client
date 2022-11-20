@@ -12,10 +12,6 @@ export default function Document() {
                     integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor"
                     crossOrigin="anonymous"
                 />
-
-                {/* <Script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"/> */}
-
-
             </Head>
 
             <body>

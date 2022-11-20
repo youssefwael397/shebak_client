@@ -23,7 +23,7 @@ function MyApp({ Component, pageProps }) {
         crossOrigin="anonymous"
       /> */}
 
-      {/* <Script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"/> */}
+      <Script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"/>
 
 
       <Provider store={store}>

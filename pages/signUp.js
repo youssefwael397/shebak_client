@@ -1,6 +1,6 @@
 import React from "react";
 import styles from "../styles/signUp.module.css";
-import SignUpInput from "../components/inputs";
+import SignUpInput from "../components/Inputs";
 import logo from "../public/images/suezuni.png";
 import Image from "next/image";
 
@@ -16,8 +16,8 @@ const SignUp = ({ loading }) => {
               <Image
                 src={logo}
                 alt="user profile picture"
-                width={90}
-                height={90}
+                width={60}
+                height={60}
               />
             </div>
             <SignUpInput loading={loading} />
