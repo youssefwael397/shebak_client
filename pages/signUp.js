@@ -30,16 +30,16 @@ const SignUp = () => {
                   <form className="w-100">
                     <ShebakInput label="Name" required={true} /><br />
                     <ShebakInput label="Office Email" required={true} /><br />
-                    <ShebakLabel label="Recording Video"/>
+                    <ShebakLabel label="Recording Video" />
                     {/* <FaceRecorder /> */}
                     <div className="d-flex justify-content-center mt-4">
-                    <Button
-                      className={`${styles.btn} border-0 rounded-5 px-5`}
-                      type="primary"
-                      htmlType="submit"
-                    >
-                      Sign Up
-                    </Button>
+                      <Button
+                        className={`${styles.btn} border-0 rounded-5 px-5`}
+                        type="primary"
+                        htmlType="submit"
+                      >
+                        Sign Up
+                      </Button>
                     </div>
                   </form>
                 </div>
@@ -53,4 +53,11 @@ const SignUp = () => {
   );
 };
 
+
 export default SignUp
+
+SignUp.getLayout = function getLayout(page) {
+  return <>
+    {page}
+  </>
+}
