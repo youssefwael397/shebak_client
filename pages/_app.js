@@ -23,13 +23,17 @@ function MyApp({ Component, pageProps }) {
         crossOrigin="anonymous"
       /> */}
 
-      <Script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"/>
+      <Script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js" />
 
 
       <Provider store={store}>
-      <Layout>
-          <Component {...pageProps} />
-        </Layout>
+        {
+          Component.getLayout ?
+            Component.getLayout(<Component {...pageProps} />) :
+            <Layout>
+              <Component {...pageProps} />
+            </Layout>
+        }
       </Provider>
     </>
   );

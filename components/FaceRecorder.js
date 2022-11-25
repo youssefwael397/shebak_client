@@ -13,13 +13,14 @@ export default function FaceRecorder() {
         closeCam,
         startRecording,
         stopRecording,
+        downloadPyramidRecord,
         webCamStatus,
         recordedBlob,
-    } = usePyramidWebCam(streamRef, downloadRef, "Face record", "webm")
+    } = usePyramidWebCam(streamRef, "webm")
 
-    useEffect(() => {
-        console.log('recordedBlob: ', recordedBlob)
-    }, [recordedBlob])
+    // useEffect(() => {
+    //     console.log('recordedBlob: ', recordedBlob)
+    // }, [recordedBlob])
 
     useEffect(() => {
         if (countDown > 0) {
@@ -38,9 +39,7 @@ export default function FaceRecorder() {
         setTimeout(() => {
             stopRecording();
         }, 10000)
-
     }
-
 
     return (
         <>
