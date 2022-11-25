@@ -1,0 +1,31 @@
+.btn_open_cam{
+    position: absolute;
+    left: 47%;
+    top: 41%;
+}
+.record {
+    position: absolute;
+    left: 44%;
+    top: 47%;
+}
+.record p{
+    color: white
+}
+.record p span{
+    color: rgba(227,73,28,0.8);
+}
+.btn_record{
+    border: 5px solid #939393;
+    background-color: rgba(227,73,28,0.8);
+    width: 64px;
+    height: 64px;
+}
+
+.btn_record:hover{
+    background-color: rgb(255 80 29 / 80%);
+}
+
+.status{
+    top: 18%;
+    left: 63%;
+}

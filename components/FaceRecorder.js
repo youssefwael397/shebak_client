@@ -1,6 +1,7 @@
-import { useRef, useState, useEffect } from 'react'
-import usePyramidWebCam from 'pyramid-webcam'
-import { PlayCircleOutlined } from "@ant-design/icons";
+import { useRef, useState, useEffect } from 'react';
+import usePyramidWebCam from 'pyramid-webcam';
+import { PlayCircleOutlined, DownloadOutlined } from "@ant-design/icons";
+import styles from "../styles/RecordVideo.module.css";
 
 export default function FaceRecorder() {
 
@@ -15,7 +16,8 @@ export default function FaceRecorder() {
         stopRecording,
         webCamStatus,
         recordedBlob,
-    } = usePyramidWebCam(streamRef, downloadRef, "Face record", "webm")
+        downloadPyramidRecord,
+    } = usePyramidWebCam(streamRef, "<fileExtension>")
 
     useEffect(() => {
         console.log('recordedBlob: ', recordedBlob)
@@ -47,14 +49,7 @@ export default function FaceRecorder() {
             <div className='text-center mx-auto w-100'>
                 <div className='mx-auto'>
                     <p>{countDown}</p>
-                    <p className='lead mx-4'>Status: {webCamStatus}</p>
-                    <button
-                        className='ms-2'
-                        type="primary"
-                        onClick={openCam}
-                    >
-                        Open Camera
-                    </button>
+
 
                     <button
                         className='ms-2'
@@ -64,13 +59,7 @@ export default function FaceRecorder() {
                         Close Camera
                     </button>
 
-                    <button
-                        className='ms-2'
-                        type="primary"
-                        onClick={start}
-                    >
-                        Start Recording
-                    </button>
+
 
                     {/* <button
               className='ms-2'
@@ -80,27 +69,50 @@ export default function FaceRecorder() {
               Stop Recording
             </button> */}
 
-                    <a
+                    {/* <a
                         ref={downloadRef}
                     >
                         <button
-                            className='ms-2'
+                            className='btn ms-2 border-0'
                             type="primary"
+                            onClick={() => downloadPyramidRecord(downloadRef, 'pyramid-record')}
                         >
-                            Download
+                            <DownloadOutlined />
                         </button>
-                    </a>
+                    </a> */}
+
+
                     <div>
                         <video
                             ref={streamRef}
-                            className=' border border-1 rounded mt-3 bg-dark'
+                            className=' border border-1 rounded mt-3 bg-dark position-relative'
                             id="preview"
                             width="500"
                             height="375.5"
                             autoPlay
                             muted
                         ></video>
-                        <PlayCircleOutlined style={{ fontSize: '16px', color: 'white' }} />
+
+                        <p className={`lead text-white fs-5 position-absolute ${styles.status}`}>{webCamStatus}</p>
+
+                        <button
+                            className={`btn border-0 ${styles.btn_open_cam}`}
+                            type="primary"
+                            onClick={openCam}
+                        >
+                            <PlayCircleOutlined style={{ fontSize: '50px', color: '#e0e0e0' }} />
+                        </button>
+
+                        {/* <div className={styles.record}>
+                            <p>PRESS <span>REC</span> WHEN READY</p>
+                            <button
+                                className={`ms-2 rounded-circle ${styles.btn_record}`}
+                                type="primary"
+                                onClick={start}
+                            >
+                            </button>
+                        </div> */}
+
                     </div>
 
                 </div>

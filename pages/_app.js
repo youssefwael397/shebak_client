@@ -5,7 +5,6 @@ import Layout from "../components/Layout";
 import { Provider } from "react-redux";
 import { store } from "../store/store";
 import "antd/dist/antd.css";
-import SignUp from "./signUp";
 
 function MyApp({ Component, pageProps }) {
   return (
