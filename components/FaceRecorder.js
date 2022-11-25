@@ -7,7 +7,8 @@ export default function FaceRecorder() {
 
     const streamRef = useRef();
     const downloadRef = useRef();
-    const [countDown, setCountDown] = useState(0)
+    const [countDown, setCountDown] = useState(0);
+    const [videoTimer, setVideoTimer] = useState(10);
 
     const {
         openCam,
@@ -91,7 +92,16 @@ export default function FaceRecorder() {
                             muted
                         ></video>
 
-                        <p className={`lead text-white fs-5 position-absolute ${styles.status}`}>{webCamStatus}</p>
+                        <div className={`position-absolute ${styles.videoTimer}`}>
+                            <div className={`text-white fs-5 position-relative`}>
+
+                                <span class={`position-absolute translate-middle p-2 border-0 rounded-circle ${styles.circle}`}>
+                                    <span class="visually-hidden">New alerts</span>
+                                </span>
+
+                                <p className='d-inline-block'>{videoTimer}</p>
+                            </div>
+                        </div>
 
                         <button
                             className={`btn border-0 ${styles.btn_open_cam}`}
