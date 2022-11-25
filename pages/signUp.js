@@ -10,7 +10,7 @@ import { registerSchema } from "../lib/validation/en/registerSchema";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useEffect } from "react";
-import { register, ResetSuccess } from '../store/slices/authSlice'
+import { register as signUp, ResetSuccess } from '../store/slices/authSlice'
 
 
 const SignUp = () => {
@@ -37,19 +37,16 @@ const SignUp = () => {
 
   useEffect(() => {
     console.log("errors : ", errors)
-  }, [errors])
-
-  useEffect(() => {
     console.log("inputs : ", inputs)
-  }, [inputs])
+  }, [inputs, errors])
 
   useEffect(() => {
-    is_success && dispatch(ResetSuccess()) && router.push("/dashboard")
+    is_success && reset() && dispatch(ResetSuccess()) // && router.push("/")
   }, [is_success]);
 
   const onSubmit = (data) => {
     alert(JSON.stringify(data))
-    dispatch(register(data));
+    dispatch(signUp(data));
   };
 
   return (
@@ -94,10 +91,14 @@ const SignUp = () => {
                         />
                       </div>
                     </div>
-                    
+
                     <ShebakLabel label="Recording Video" />
                     <div>
-                      <FaceRecorder />
+                      <FaceRecorder setValue={setValue} />
+                      {
+                        errors.face_video?.message &&
+                        <div className="text-center text-danger mt-3">{errors.face_video.message}</div>
+                      }
                     </div>
                     <div className="d-flex justify-content-center mt-4 mb-3">
                       <Button

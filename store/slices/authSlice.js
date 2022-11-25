@@ -1,12 +1,19 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import { NotifyMessage } from "../../components/Messages";
+import axiosInstance from "../../lib/axiosInstancs"
 
 export const register = createAsyncThunk(
     "register",
     async (args, { rejectWithValue }) => {
         try {
+            console.log('register thunk')
             const url = "/api/register";
-            const res = await axios.post(url, args);
+            console.log(args)
+            const form = new FormData()
+            for (let key in args) { 
+                form.append(key, args[key])
+            }
+            const res = await axiosInstance.post(url, form);
             return res.data;
         } catch (err) {
             return rejectWithValue(err);
@@ -50,10 +57,11 @@ export const authSlice = createSlice({
         [register.rejected]: (state, { payload }) => {
             state.is_loading = false;
             state.is_success = false;
+            console.log(payload)
             NotifyMessage({
                 type: 'error',
                 title: "Register Error",
-                description: payload.message
+                description: payload.response?.data.message || payload.message
             })
         }
     }

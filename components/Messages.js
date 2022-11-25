@@ -6,7 +6,7 @@ export const NotifyMessage = ({ type, title, description }) => {
         message: title,
         description: typeof description === 'object' ?
             <>{
-                description.map(elem => <>
+                description?.length > 0 && description.map(elem => <>
                     <span className='d-block'>{elem}</span>
                     <br />
                 </>)
