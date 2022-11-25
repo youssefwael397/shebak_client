@@ -4,8 +4,54 @@ import logo from "../public/images/suezuni.png";
 import Image from "next/image";
 import FaceRecorder from "../components/FaceRecorder";
 import { Button } from "antd";
+import { useRouter } from "next/router";
+import { useDispatch, useSelector } from "react-redux";
+import { registerSchema } from "../lib/validation/en/registerSchema";
+import { useForm } from "react-hook-form";
+import { yupResolver } from "@hookform/resolvers/yup";
+import { useEffect } from "react";
+import { register, ResetSuccess } from '../store/slices/authSlice'
+
 
 const SignUp = () => {
+  const router = useRouter()
+  const dispatch = useDispatch();
+
+  const { is_success, is_loading, registerInfo } = useSelector(
+    (state) => state.auth
+  );
+
+  const {
+    register,
+    handleSubmit,
+    watch,
+    reset,
+    setValue,
+    formState: { errors },
+  } = useForm({
+    resolver: yupResolver(registerSchema),
+    defaultValues: registerInfo,
+  });
+
+  const inputs = watch()
+
+  useEffect(() => {
+    console.log(errors)
+  }, [errors])
+
+  useEffect(() => {
+    console.log(inputs)
+  }, [inputs])
+
+  useEffect(() => {
+    is_success && dispatch(ResetSuccess()) && router.push("/dashboard")
+  }, [is_success]);
+
+  const onSubmit = (data) => {
+    alert(JSON.stringify(data))
+    dispatch(register(data));
+  };
+
   return (
     <div className={`${styles.signUp}`}>
       <div className="container-xxl">
@@ -27,9 +73,23 @@ const SignUp = () => {
                     className="me-5 position-absolute end-0"
                   />
                   <h2 className="d-inline-block d-flex justify-content-center">Sign Up</h2>
-                  <form className="w-100">
-                    <ShebakInput label="Name" required={true} /><br />
-                    <ShebakInput label="Office Email" required={true} /><br />
+                  <form className="w-100" onSubmit={handleSubmit(onSubmit)}>
+                    <ShebakInput
+                      register={register}
+                      name="username"
+                      label="Name"
+                      required
+                      error={errors.username?.message}
+                    />
+                    <br />
+                    <ShebakInput
+                      register={register}
+                      name="email"
+                      label="Office Email"
+                      required
+                      error={errors.email?.message}
+                    />
+                    <br />
                     <ShebakLabel label="Recording Video" />
                     {/* <FaceRecorder /> */}
                     <div className="d-flex justify-content-center mt-4">
