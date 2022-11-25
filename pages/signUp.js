@@ -36,11 +36,11 @@ const SignUp = () => {
   const inputs = watch()
 
   useEffect(() => {
-    console.log(errors)
+    console.log("errors : ", errors)
   }, [errors])
 
   useEffect(() => {
-    console.log(inputs)
+    console.log("inputs : ", inputs)
   }, [inputs])
 
   useEffect(() => {
