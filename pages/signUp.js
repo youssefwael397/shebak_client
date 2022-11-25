@@ -64,7 +64,7 @@ const SignUp = () => {
             <div className={styles.right_section}>
 
               <div className="d-flex justify-content-center">
-                <div className="mt-4">
+                <div className="">
                   <Image
                     src={logo}
                     alt="user profile picture"
@@ -72,27 +72,34 @@ const SignUp = () => {
                     height={60}
                     className="me-5 position-absolute end-0"
                   />
-                  <h2 className="d-inline-block d-flex justify-content-center">Sign Up</h2>
+                  {/* <h2 className="d-inline-block d-flex justify-content-center">Sign Up</h2> */}
                   <form className="w-100" onSubmit={handleSubmit(onSubmit)}>
-                    <ShebakInput
-                      register={register}
-                      name="username"
-                      label="Name"
-                      required
-                      error={errors.username?.message}
-                    />
-                    <br />
-                    <ShebakInput
-                      register={register}
-                      name="email"
-                      label="Office Email"
-                      required
-                      error={errors.email?.message}
-                    />
-                    <br />
+                    <div className="row">
+                      <div className="col">
+                        <ShebakInput
+                          register={register}
+                          name="username"
+                          label="Name"
+                          required
+                          error={errors.username?.message}
+                        />
+                      </div>
+                      <div className="col">
+                        <ShebakInput
+                          register={register}
+                          name="email"
+                          label="Office Email"
+                          required
+                          error={errors.email?.message}
+                        />
+                      </div>
+                    </div>
+                    
                     <ShebakLabel label="Recording Video" />
-                    {/* <FaceRecorder /> */}
-                    <div className="d-flex justify-content-center mt-4">
+                    <div>
+                      <FaceRecorder />
+                    </div>
+                    <div className="d-flex justify-content-center mt-4 mb-3">
                       <Button
                         className={`${styles.btn} border-0 rounded-5 px-5`}
                         type="primary"

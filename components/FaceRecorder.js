@@ -47,7 +47,7 @@ export default function FaceRecorder() {
         <>
             <div className='text-center mx-auto w-100'>
                 <div className='mx-auto'>
-                    <p>{countDown}</p>
+                    {/* <p>{countDown}</p>
 
 
                     <button
@@ -56,7 +56,7 @@ export default function FaceRecorder() {
                         onClick={closeCam}
                     >
                         Close Camera
-                    </button>
+                    </button> */}
 
 
 
@@ -81,10 +81,10 @@ export default function FaceRecorder() {
                     </a> */}
 
 
-                    <div>
+                    <div className={`${styles.videoContainer} position-relative`}>
                         <video
                             ref={streamRef}
-                            className=' border border-1 rounded mt-3 bg-dark position-relative'
+                            className=' border border-1 rounded mt-3 bg-dark'
                             id="preview"
                             width="500"
                             height="375.5"
@@ -95,8 +95,8 @@ export default function FaceRecorder() {
                         <div className={`position-absolute ${styles.videoTimer}`}>
                             <div className={`text-white fs-5 position-relative`}>
 
-                                <span class={`position-absolute translate-middle p-2 border-0 rounded-circle ${styles.circle}`}>
-                                    <span class="visually-hidden">New alerts</span>
+                                <span className={`position-absolute translate-middle p-2 border-0 rounded-circle ${styles.circle}`}>
+                                    <span className="visually-hidden">New alerts</span>
                                 </span>
 
                                 <p className='d-inline-block'>{videoTimer}</p>

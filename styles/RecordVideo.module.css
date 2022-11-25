@@ -1,12 +1,16 @@
+.videoContainer{
+    width: 500px;
+    height: 375.5px;
+}
 .btn_open_cam{
     position: absolute;
-    left: 47%;
-    top: 41%;
+    left: 43%;
+    top: 45%;
 }
 .record {
     position: absolute;
-    left: 44%;
-    top: 47%;
+    left: 35%;
+    top: 43%;
 }
 .record p{
     color: white
@@ -26,8 +30,8 @@
 }
 
 .videoTimer{
-    top: 18%;
-    left: 65%;
+    top: 9%;
+    right: 5%;
 }
 
 .videoTimer .circle{
