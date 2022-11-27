@@ -50,69 +50,73 @@ const SignUp = () => {
   };
 
   return (
-    <div className={`${styles.signUp}`}>
-      <div className="container-xxl">
-        <div className="row">
-          <div className="col-xl-5 col-lg-5 mt-4">
-            <lottie-player src="https://lottie.host/b1752808-0ad2-49fb-b5a5-4ae952e1ffc8/FU8xh3edGg.json" background="transparent" speed="1" style={{ width: "400px", marginLeft: "60px" }} className="text-center" loop autoplay />
-            {/* <h2 className="text-white text-center">SHEBAK</h2> */}
-          </div>
-          <div className={`col-xl-7 col-lg-7 mt-4`}>
-            <div className={styles.right_section}>
+    <div className={`${styles.cont} `}>
+      <div className={`${styles.signUp} p-3 rounded-5`}>
+        <div className="container-xxl">
+          <div className="row">
+            <div className={`col-xl-6 col-lg-6 ${styles.d_none}`}>
 
-              <div className="d-flex justify-content-center">
-                <div className="">
-                  <Image
+                <lottie-player src="https://lottie.host/7b4e4ddf-a8d1-4742-b0d2-ea8eb2fdb801/XpSpqOPdac.json" background="transparent" speed="1" style={{ width: "400px", marginLeft: "110px" }} loop autoplay></lottie-player>
+              {/* <lottie-player src="https://lottie.host/b1752808-0ad2-49fb-b5a5-4ae952e1ffc8/FU8xh3edGg.json" background="transparent" speed="1" style={{ width: "400px", marginLeft: "60px" }} className="text-center" loop autoplay /> */}
+
+            </div>
+            <div className={`col-xl-6 col-lg-6 col-md-12 col-sm-12 mt-3 mb-3 ${styles.cont_right_section}`}>
+              <div className={`${styles.right_section} rounded-5`}>
+
+                <div className="d-flex justify-content-center">
+                  <div className="">
+                    {/* <Image
                     src={logo}
                     alt="user profile picture"
                     width={60}
                     height={60}
                     className="me-5 position-absolute end-0"
-                  />
-                  {/* <h2 className="d-inline-block d-flex justify-content-center">Sign Up</h2> */}
-                  <form className="w-100" onSubmit={handleSubmit(onSubmit)}>
-                    <div className="row">
-                      <div className="col">
-                        <ShebakInput
-                          register={register}
-                          name="username"
-                          label="Name"
-                          required
-                          error={errors.username?.message}
-                        />
+                  /> */}
+                    <h3 className="fw-bold text-dark">Welcome to Shebak!</h3>
+                    <form className="w-100" onSubmit={handleSubmit(onSubmit)}>
+                      <div className="row">
+                        <div className="col-xxl-9 col-xl-9 col-lg-9 col-md-12 col-sm-12">
+                          <ShebakInput
+                            register={register}
+                            name="username"
+                            label="Name"
+                            required
+                            error={errors.username?.message}
+                          />
+                        </div>
+                        <div className="col-xxl-9 col-xl-9 col-lg-9 col-md-12 col-sm-12">
+                          <ShebakInput
+                            register={register}
+                            name="email"
+                            label="Office Email"
+                            required
+                            error={errors.email?.message}
+                          />
+                        </div>
                       </div>
-                      <div className="col">
-                        <ShebakInput
-                          register={register}
-                          name="email"
-                          label="Office Email"
-                          required
-                          error={errors.email?.message}
-                        />
-                      </div>
-                    </div>
 
-                    <ShebakLabel label="Recording Video" />
-                    <div>
-                      <FaceRecorder setValue={setValue} />
-                      {
-                        errors.face_video?.message &&
-                        <div className="text-center text-danger mt-3">{errors.face_video.message}</div>
-                      }
-                    </div>
-                    <div className="d-flex justify-content-center mt-4 mb-3">
-                      <Button
-                        className={`${styles.btn} border-0 rounded-5 px-5`}
-                        type="primary"
-                        htmlType="submit"
-                      >
-                        Sign Up
-                      </Button>
-                    </div>
-                  </form>
+                      <ShebakLabel label="Recording Video" />
+                      <div>
+                        <FaceRecorder setValue={setValue} />
+                        {
+                          errors.face_video?.message &&
+                          <div className="text-danger mt-4">{errors.face_video.message}</div>
+                        }
+                      </div>
+                      <div className={`d-flex justify-content-start ${errors.face_video?.message ? "mt-3" : "mt-5"}`}>
+                        <Button
+                          className={`${styles.btn} border-0 rounded-4 px-5`}
+                          type="primary"
+                          htmlType="submit"
+                        >
+                          Sign Up
+                        </Button>
+                      </div>
+                    </form>
+                  </div>
                 </div>
-              </div>
 
+              </div>
             </div>
           </div>
         </div>

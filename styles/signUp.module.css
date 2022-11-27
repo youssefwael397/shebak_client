@@ -1,16 +1,29 @@
-.signUp{
+.cont {
   background-color: #21688a;
+  padding: 25px 45px;
+  font-family: "Tajawal";
 }
 
-.right_section {
-  border-radius: 12% 100% 21% 14% / 28% 0% 0% 55%;
-  /* height: 550px; */
-  width: 100%;
+.signUp {
   background-color: white;
 }
 
-.right_section h2{
-  color: #21688a;
+.cont_right_section {
+  border-left: 2px solid #f2f1ee;
+}
+
+.right_section {
+  /* border-radius: 12% 100% 21% 14% / 28% 0% 0% 55%; */
+  background-color: white;
+  margin-left: 50px;
+}
+
+.right_section h3 {
+  margin-bottom: 5px;
+}
+
+.right_section p {
+  color: #a6a5aa;
 }
 
 .btn {
@@ -18,6 +31,23 @@
   background-color: #21688a;
   letter-spacing: 1.5px;
   color: #f3f3f3;
+  margin-right: 119px;
+  height: 40px;
+}
+
+@media (max-width: 767.98px) {
+  .right_section {
+    margin-left: 0px;
+  }
+}
+
+@media (max-width: 991.98px) {
+  .d_none {
+    display: none;
+  }
+  .cont_right_section {
+    border-left: 0;
+  }
 }
 
 /* .container {

@@ -39,8 +39,8 @@ export default function FaceRecorder({ setValue }) {
                             ref={streamRef}
                             className=' border border-1 rounded mt-3 bg-dark'
                             id="preview"
-                            width="500"
-                            height="375.5"
+                            width="400"
+                            height="275.5"
                             autoPlay
                             muted
                         ></video>
