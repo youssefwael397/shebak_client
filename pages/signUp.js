@@ -35,17 +35,17 @@ const SignUp = () => {
 
   const inputs = watch()
 
-  useEffect(() => {
-    console.log("errors : ", errors)
-    console.log("inputs : ", inputs)
-  }, [inputs, errors])
+  // useEffect(() => {
+  //   console.log("errors : ", errors)
+  //   console.log("inputs : ", inputs)
+  // }, [inputs, errors])
 
   useEffect(() => {
     is_success && reset() && dispatch(ResetSuccess()) // && router.push("/")
   }, [is_success]);
 
   const onSubmit = (data) => {
-    alert(JSON.stringify(data))
+    // console.log(data)
     dispatch(signUp(data));
   };
 
@@ -56,7 +56,7 @@ const SignUp = () => {
           <div className="row">
             <div className={`col-xl-6 col-lg-6 ${styles.d_none}`}>
 
-                <lottie-player src="https://lottie.host/7b4e4ddf-a8d1-4742-b0d2-ea8eb2fdb801/XpSpqOPdac.json" background="transparent" speed="1" style={{ width: "400px", marginLeft: "110px" }} loop autoplay></lottie-player>
+              <lottie-player src="https://lottie.host/7b4e4ddf-a8d1-4742-b0d2-ea8eb2fdb801/XpSpqOPdac.json" background="transparent" speed="1" style={{ width: "400px", marginLeft: "110px" }} loop autoplay></lottie-player>
               {/* <lottie-player src="https://lottie.host/b1752808-0ad2-49fb-b5a5-4ae952e1ffc8/FU8xh3edGg.json" background="transparent" speed="1" style={{ width: "400px", marginLeft: "60px" }} className="text-center" loop autoplay /> */}
 
             </div>
@@ -109,7 +109,7 @@ const SignUp = () => {
                           type="primary"
                           htmlType="submit"
                         >
-                          Sign Up
+                          {is_loading ? "Loading..." : "Sign Up"}
                         </Button>
                       </div>
                     </form>

@@ -30,6 +30,12 @@ export default function FaceRecorder({ setValue }) {
         }
     }, [webCamStatus, videoTimer])
 
+    useEffect(() => {
+        if (recordedBlob) {
+            setValue('face_video', recordedBlob)
+        }
+    }, [recordedBlob])
+
     return (
         <>
             <div className='text-center mx-auto w-100'>
@@ -54,7 +60,7 @@ export default function FaceRecorder({ setValue }) {
                                             <span className="visually-hidden">New alerts</span>
                                         </span>
 
-                                        <p className='d-inline-block'>{videoTimer}</p>
+                                        <p className='d-inline-block text-white'>{videoTimer}</p>
                                     </div>
                                 </div> : null
                         }
