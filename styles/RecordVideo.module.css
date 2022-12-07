@@ -2,6 +2,10 @@
     width: 400px;
     height: 275.5px;
 }
+.StreamvideoContainer{
+    width: 600px;
+    height: 455.5px;
+}
 .btn_open_cam{
     position: absolute;
     left: 42%;

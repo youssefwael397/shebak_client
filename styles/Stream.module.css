@@ -1,0 +1,6 @@
+.stream{
+    background-color: #21688a;
+    background-image: url("../public/images/bgStream.png");
+    /* background-image: linear-gradient(90deg, #6b9db3, #21688a) !important; */
+    font-family: "Tajawal";
+}

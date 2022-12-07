@@ -1,0 +1,24 @@
+.contNav {
+  background-color: #21688a;
+  font-family: "Tajawal";
+}
+.navbar {
+  color: white;
+  position: absolute;
+  background-color: #21688a;
+}
+
+.logo {
+  background-color: #73a6bc;
+}
+
+.logo img {
+  height: 50px;
+}
+
+.navbar-collapse {
+  margin-left: 907px;
+}
+.navbar a {
+  color: white;
+}
