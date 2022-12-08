@@ -19,6 +19,13 @@
 .navbar-collapse {
   margin-left: 907px;
 }
-.navbar a {
+.navbar a{
   color: white;
+}
+.navbar a:hover{
+  color: #9bd6f0;
+}
+
+.active{
+  color: #9bd6f0;
 }
