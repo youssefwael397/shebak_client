@@ -1,6 +1,6 @@
 import { useRef, useState, useEffect } from "react";
 import usePyramidWebCam from "pyramid-webcam";
-import { PlayCircleOutlined, DownloadOutlined } from "@ant-design/icons";
+import { PlayCircleOutlined } from "@ant-design/icons";
 import styles from "../styles/RecordVideo.module.css";
 
 export default function StreamVideo() {
@@ -45,7 +45,7 @@ export default function StreamVideo() {
               </button>
             ) : null}
 
-            {webCamStatus == "Opened" ? (
+            {/* {webCamStatus == "Opened" ? (
               <div className={styles.record}>
                 <p>
                   PRESS <span>REC</span> WHEN READY
@@ -56,7 +56,7 @@ export default function StreamVideo() {
                   onClick={startRecording}
                 ></button>
               </div>
-            ) : null}
+            ) : null} */}
           </div>
         </div>
       </div>
