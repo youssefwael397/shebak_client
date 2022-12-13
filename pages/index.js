@@ -9,17 +9,25 @@ const Stream = () => {
   const [message, setMessage] = useState("message");
 
   useEffect(() => {
-    const newSocket = io(`http://localhost:5000`);
+    const newSocket = io(`http://localhost:5000`, {
+      reconnectionDelay: 10000,
+      // reconnectionDelayMax: 15000
+    });
     console.log(newSocket);
     setSocket(newSocket);
     // return () => newSocket.close();
   }, []);
 
+  useEffect(() => {
+    // socket.on()
+  },[socket])
+
   const sendMessage = (e) => {
     e.preventDefault();
     if (message) {
-      console.log(socket)
-      socket.emit('message', { "message": message });
+      // console.log(socket)
+      console.log(message)
+      socket.emit('json', { "message": message })
     }
   };
 
