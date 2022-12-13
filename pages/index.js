@@ -15,12 +15,8 @@ const Stream = () => {
     });
     console.log(newSocket);
     setSocket(newSocket);
-    // return () => newSocket.close();
+    return () => newSocket.close();
   }, []);
-
-  useEffect(() => {
-    // socket.on()
-  },[socket])
 
   const sendMessage = (e) => {
     e.preventDefault();
