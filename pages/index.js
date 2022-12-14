@@ -11,57 +11,31 @@ import captureVideoFrame from "capture-video-frame";
 
 
 const Stream = () => {
-  const streamRef = useRef();
-
-  const {
-    openCam,
-    closeCam,
-    startRecording,
-    stopRecording,
-    downloadPyramidRecord,
-    webCamStatus,
-    recordedBlob,
-  } = usePyramidWebCam(streamRef, "webm");
-
   const [socket, setSocket] = useState(null);
+  const [src, setSrc] = useState(null);
   const [message, setMessage] = useState("message");
 
   useEffect(() => {
-    const newSocket = io(`http://localhost:5000`, {
-      reconnectionDelay: 10000,
-      // reconnectionDelayMax: 15000
-    });
-    // console.log(newSocket);
-    setSocket(newSocket);
-    return () => newSocket.close();
+    try {
+      const newSocket = io(`http://localhost:5000`, {
+        reconnectionDelay: 10000,
+        // reconnectionDelayMax: 15000
+      });
+      // console.log(newSocket);
+      setSocket(newSocket);
+      return () => newSocket.close();
+    } catch (error) {
+      console.log(error)
+    }
   }, []);
 
   useEffect(() => {
     if (socket)
-      socket.on('response', (data) => {
+      socket.on('rtc', (data) => {
         console.log(data)
+        setSrc(data?.frame)
       })
   }, [socket])
-
-
-  useEffect(() => {
-    console.log('first')
-    if (streamRef)
-      getVideoTrack()
-  }, [streamRef])
-
-  const getVideoTrack = () => {
-    // while (streamRef) {
-    const frame = captureVideoFrame("preview", "png");
-    const formData = new FormData();
-    if (frame) {
-      formData.append("file", frame.blob, `my-screenshot.${frame.format}`);
-      // console.log(frame);
-      // console.log(formData);
-      socket.emit('face_recognition', { "formData": "formData" })
-    }
-    // }
-  }
 
   const sendMessage = (e) => {
     e.preventDefault();
@@ -82,7 +56,15 @@ const Stream = () => {
                 <div className="text-center mx-auto w-100">
                   <div className="mx-auto d-flex justify-content-center mb-5">
                     <div className={`${CamStyles.videoContainer} ${CamStyles.StreamvideoContainer} position-relative`}>
-                      <video
+                      <div>Socket Connected</div>
+
+                      <img
+                        src={src}
+                        width="600"
+                        height="455.5"
+                      />
+
+                      {/* <video
                         ref={streamRef}
                         className=" border border-1 rounded mt-3 bg-dark"
                         id="preview"
@@ -90,11 +72,11 @@ const Stream = () => {
                         height="455.5"
                         autoPlay
                         muted
-                      ></video>
+                      ></video> */}
 
-                      <p className="lead mx-4 mt-3 mb-2 fw-bold fs-4">Status: {webCamStatus}</p>
+                      {/* <p className="lead mx-4 mt-3 mb-2 fw-bold fs-4">Status: {webCamStatus}</p> */}
 
-                      {webCamStatus == "Closed" || webCamStatus == "Stopped" ? (
+                      {/* {webCamStatus == "Closed" || webCamStatus == "Stopped" ? (
                         <button
                           className={`btn border-0 ${CamStyles.btn_open_cam}`}
                           type="button"
@@ -104,7 +86,7 @@ const Stream = () => {
                             style={{ fontSize: "50px", color: "#e0e0e0" }}
                           />
                         </button>
-                      ) : null}
+                      ) : null} */}
                     </div>
                   </div>
                 </div> :
