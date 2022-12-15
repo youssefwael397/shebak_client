@@ -17,34 +17,33 @@ const Stream = () => {
 
   useEffect(() => {
     try {
-      const newSocket = io(`http://localhost:5000`, {
-        reconnectionDelay: 10000,
-        // reconnectionDelayMax: 15000
-      });
-      // console.log(newSocket);
+      const newSocket = io(`http://localhost:5000`);
+      console.log(newSocket);
+      console.log('connection established: ', newSocket.connected)
       setSocket(newSocket);
-      return () => newSocket.close();
+      // return () => newSocket.close();
+      newSocket.on('rtc', (data) => {
+        console.log(data)
+        let blob = new Blob([data], { type: 'image/jpeg' })
+        const blobUrl = URL.createObjectURL(blob) // blob is the Blob object
+        // image.src =  // image is the image element from the DOM
+        // const src = `data:image/jpg;base64, ${blob}`
+        setSrc(blobUrl)
+      })
+
     } catch (error) {
       console.log(error)
     }
   }, []);
 
-  useEffect(() => {
-    if (socket)
-      socket.on('rtc', (data) => {
-        console.log(data)
-        setSrc(data?.frame)
-      })
-  }, [socket])
-
-  const sendMessage = (e) => {
-    e.preventDefault();
-    if (message) {
-      // console.log(socket)
-      console.log(message)
-      socket.emit('face_recognition', { "message": message })
-    }
-  };
+  // const sendMessage = (e) => {
+  //   e.preventDefault();
+  //   if (message) {
+  //     // console.log(socket)
+  //     console.log(message)
+  //     socket.emit('face_recognition', { "message": message })
+  //   }
+  // };
 
   return (
     <div className={`${styles.stream} py-5`}>
@@ -56,7 +55,7 @@ const Stream = () => {
                 <div className="text-center mx-auto w-100">
                   <div className="mx-auto d-flex justify-content-center mb-5">
                     <div className={`${CamStyles.videoContainer} ${CamStyles.StreamvideoContainer} position-relative`}>
-                      <div>Socket Connected</div>
+                      {/* <div>Socket Connected</div> */}
 
                       <img
                         src={src}
