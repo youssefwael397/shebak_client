@@ -4,28 +4,37 @@
 }
 .navbar {
   color: white;
-  position: absolute;
-  background-color: #21688a;
+  /* background-color: #21688a; */
+  background-color: #1b5874;
+  border-right: 1px solid #2a4464;
+  height: 100%;
 }
 
 .logo {
-  background-color: #73a6bc;
+  /* background-color: #73a6bc; */
+  padding: 15px;
 }
 
 .logo img {
-  height: 50px;
+  height: 55px;
+  width: 100%;
 }
 
-.navbar-collapse {
-  margin-left: 907px;
-}
 .navbar a{
-  color: white;
+  color: #b9b9b9;
 }
 .navbar a:hover{
   color: #9bd6f0;
 }
 
 .active{
-  color: #9bd6f0;
+  color: white;
+}
+
+.HeaderStreams{
+  background-color: #1b5874;
+  padding: 10px 270px;
+}
+.HeaderStreams h3{
+  color: white;
 }

@@ -1,13 +1,15 @@
-import Header from "./Header";
+import Header from "./Header2";
 import Footer from "./Footer";
 
 const Layout = ({ children }) => {
 
     return (
         <>
+
             <Header />
             {children}
             <Footer />
+
         </>
     );
 };

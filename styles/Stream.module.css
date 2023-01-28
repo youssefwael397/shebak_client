@@ -1,6 +1,10 @@
 .stream{
-    background-color: #21688a;
-    background-image: url("../public/images/bgStream.png");
+    /* background-color: #21688a; */
+    background-color: #174c64;
     /* background-image: linear-gradient(90deg, #6b9db3, #21688a) !important; */
     font-family: "Tajawal";
+}
+
+.cont_video{
+    margin-left: 143px;
 }

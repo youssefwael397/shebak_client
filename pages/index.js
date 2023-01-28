@@ -6,8 +6,7 @@ import { useEffect, useRef, useState } from "react";
 import { PlayCircleOutlined } from "@ant-design/icons";
 import CamStyles from "../styles/RecordVideo.module.css";
 import captureVideoFrame from "capture-video-frame";
-
-
+import HeaderStreams from "../components/HeaderStreams";
 
 
 const Stream = () => {
@@ -46,24 +45,27 @@ const Stream = () => {
   // };
 
   return (
-    <div className={`${styles.stream} py-5`}>
-      <div className="container">
-        <div className={` ${styles.cont_video} bg-white rounded-4 p-5 mt-4`}>
-          <div className="d-flex justify-content-center mx-auto">
-            {
-              socket ?
-                <div className="text-center mx-auto w-100">
-                  <div className="mx-auto d-flex justify-content-center mb-5">
-                    <div className={`${CamStyles.videoContainer} ${CamStyles.StreamvideoContainer} position-relative`}>
-                      {/* <div>Socket Connected</div> */}
+    <>
+      <HeaderStreams />
+      <div className={`${styles.stream} pt-4 pb-5`}>
+        <div className="container">
+          <div className={` ${styles.cont_video} d-flex align-items-center`}>
+            <div className="d-flex align-items-center">
+              {
+                socket ?
+                  <div className="text-center mx-auto w-100">
+                    <div className="mb-5">
+                      <div className={`${CamStyles.videoContainer} ${CamStyles.StreamvideoContainer} position-relative`}>
+                        {/* <div>Socket Connected</div> */}
 
-                      <img
-                        src={src}
-                        width="600"
-                        height="455.5"
-                      />
+                        <img
+                          src={src}
+                          width="700"
+                          height="495.5"
+                          className="rounded-4"
+                        />
 
-                      {/* <video
+                        {/* <video
                         ref={streamRef}
                         className=" border border-1 rounded mt-3 bg-dark"
                         id="preview"
@@ -73,9 +75,9 @@ const Stream = () => {
                         muted
                       ></video> */}
 
-                      {/* <p className="lead mx-4 mt-3 mb-2 fw-bold fs-4">Status: {webCamStatus}</p> */}
+                        {/* <p className="lead mx-4 mt-3 mb-2 fw-bold fs-4">Status: {webCamStatus}</p> */}
 
-                      {/* {webCamStatus == "Closed" || webCamStatus == "Stopped" ? (
+                        {/* {webCamStatus == "Closed" || webCamStatus == "Stopped" ? (
                         <button
                           className={`btn border-0 ${CamStyles.btn_open_cam}`}
                           type="button"
@@ -86,16 +88,16 @@ const Stream = () => {
                           />
                         </button>
                       ) : null} */}
+                      </div>
                     </div>
-                  </div>
-                </div> :
-                <div>Socket Not Connected</div>
-            }
+                  </div> :
+                  <div>Socket Not Connected</div>
+              }
+            </div>
           </div>
         </div>
-      </div>
 
-      {/* {socket ? (
+        {/* {socket ? (
         <div className="chat-container mt-3">
           <form>
             <input
@@ -111,7 +113,8 @@ const Stream = () => {
       ) : (
         <div>Socket Not Connected</div>
       )} */}
-    </div>
+      </div>
+    </>
   );
 };
 
