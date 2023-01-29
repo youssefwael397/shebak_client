@@ -1,47 +1,93 @@
 import styles from "../styles/Header.module.css";
 import Link from "next/link";
 import { useState } from "react";
+import { VideoCameraOutlined , WarningOutlined , TeamOutlined} from '@ant-design/icons';
 
 const Header = () => {
 
-  const [active , setActive]= useState("")
+  const [active, setActive] = useState("")
 
   return (
     <div className={styles.contNav}>
-      <div className="container">
+      <div className="">
         <nav
-          className={`${styles.navbar} mt-1 navbar navbar-expand-lg navbar-light`}
+          className={`${styles.navbar} navbar navbar-expand-lg navbar-light position-absolute top-0`}
         >
-          <div className="container-fluid">
-            <a className={`rounded-5 ${styles.logo}`} href="#">
-              <img src="images/Logo1.png" width="90px" />
-            </a>
-            <button
-              className="navbar-toggler"
-              type="button"
-              data-bs-toggle="collapse"
-              data-bs-target="#navbarNav"
-              aria-controls="navbar Nav"
-              aria-expanded="false"
-              aria-label="Toggle navigation"
-            >
-              <span className="navbar-toggler-icon"></span>
-            </button>
-            <div className="collapse navbar-collapse" id="navbarNav">
-              <ul className="navbar-nav ms-4">
+          <div className="">
+            <div className="d-flex justify-content-center">
+              <ul className="list-unstyled mx-5">
                 <li className="nav-item">
-                  <Link href="/" className={`nav-link fs-5 ${styles.active}`}>
-                    Streams
+                  <a className={`rounded-5 ${styles.logo}`} href="#">
+                    <img src="images/Logo1.png" className="d-flex align-items-center" />
+                  </a>
+                </li>
+                <li className="nav-item mx-auto mt-3">
+                  <Link href="/" className={`nav-link fs-5 d-flex align-items-center text-white ${styles.active}`}>
+                    <VideoCameraOutlined />
+                    <span className="ms-3">Streams</span>
                   </Link>
                 </li>
-                <li className="nav-item">
-                  <Link href="#" className="nav-link fs-5">
-                    Students
+                <li className="nav-item mx-auto mt-3">
+                  <Link href="#" className="nav-link fs-5 d-flex align-items-center">
+                  <TeamOutlined />
+                  <span className="ms-3">Students</span>
                   </Link>
                 </li>
-                <li className="nav-item">
-                  <Link href="#" className="nav-link fs-5">
-                    Warnings
+                <li className="nav-item mx-auto mt-3">
+                  <Link href="#" className="nav-link fs-5 d-flex align-items-center">
+                  <WarningOutlined />
+                  <span className="ms-3"> Warnings</span>
+                  </Link>
+                </li>
+                <li className="nav-item mx-auto mt-3">
+                  <Link href="#" className="nav-link fs-5 d-flex align-items-center">
+                  <TeamOutlined />
+                  <span className="ms-3"> People</span>
+                  </Link>
+                </li>
+
+
+
+                <li className="nav-item mx-auto mt-3">
+                  <Link href="#" className="nav-link fs-5 d-flex align-items-center">
+                  <WarningOutlined />
+                  <span className="ms-3"> Warnings</span>
+                  </Link>
+                </li>
+                <li className="nav-item mx-auto mt-3">
+                  <Link href="#" className="nav-link fs-5 d-flex align-items-center">
+                  <WarningOutlined />
+                  <span className="ms-3"> Warnings</span>
+                  </Link>
+                </li>
+                <li className="nav-item mx-auto mt-3">
+                  <Link href="#" className="nav-link fs-5 d-flex align-items-center">
+                  <WarningOutlined />
+                  <span className="ms-3"> Warnings</span>
+                  </Link>
+                </li>
+                <li className="nav-item mx-auto mt-3">
+                  <Link href="#" className="nav-link fs-5 d-flex align-items-center">
+                  <WarningOutlined />
+                  <span className="ms-3"> Warnings</span>
+                  </Link>
+                </li>
+                <li className="nav-item mx-auto mt-3">
+                  <Link href="#" className="nav-link fs-5 d-flex align-items-center">
+                  <WarningOutlined />
+                  <span className="ms-3"> Warnings</span>
+                  </Link>
+                </li>
+                <li className="nav-item mx-auto mt-3">
+                  <Link href="#" className="nav-link fs-5 d-flex align-items-center">
+                  <WarningOutlined />
+                  <span className="ms-3"> Warnings</span>
+                  </Link>
+                </li>
+                <li className="nav-item mx-auto mt-3">
+                  <Link href="#" className="nav-link fs-5 d-flex align-items-center">
+                  <WarningOutlined />
+                  <span className="ms-3"> Warnings</span>
                   </Link>
                 </li>
               </ul>
