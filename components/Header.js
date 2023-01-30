@@ -1,91 +1,41 @@
 import styles from "../styles/Header.module.css";
 import Link from "next/link";
+import { useRouter } from 'next/router';
 import { useState } from "react";
 import { VideoCameraOutlined , WarningOutlined , TeamOutlined} from '@ant-design/icons';
 
 const Header = () => {
 
-  const [active, setActive] = useState("")
+  const router = useRouter();
 
   return (
     <div className={styles.contNav}>
       <div className="">
         <nav
-          className={`${styles.navbar} navbar navbar-expand-lg navbar-light position-absolute top-0`}
+          className={`${styles.navbar} navbar navbar-expand-lg navbar-light d-flex justify-content-center`}
         >
           <div className="">
-            <div className="d-flex justify-content-center">
+            <div className="d-flex justify-content-center align-items-start">
               <ul className="list-unstyled mx-5">
                 <li className="nav-item">
                   <a className={`rounded-5 ${styles.logo}`} href="#">
                     <img src="images/Logo1.png" className="d-flex align-items-center" />
                   </a>
                 </li>
-                <li className="nav-item mx-auto mt-3">
-                  <Link href="/" className={`nav-link fs-5 d-flex align-items-center text-white ${styles.active}`}>
+                <li className="nav-item ms-3 mt-3">
+                  <Link href="/" className={`nav-link d-flex align-items-center ${router.pathname == "/" ? styles.active : " "}`}>
                     <VideoCameraOutlined />
                     <span className="ms-3">Streams</span>
                   </Link>
                 </li>
-                <li className="nav-item mx-auto mt-3">
-                  <Link href="#" className="nav-link fs-5 d-flex align-items-center">
+                <li className="nav-item ms-3 mt-3">
+                  <Link href="/students" className={`nav-link d-flex align-items-center ${router.pathname == "/students" ? styles.active : " "}`}>
                   <TeamOutlined />
                   <span className="ms-3">Students</span>
                   </Link>
                 </li>
-                <li className="nav-item mx-auto mt-3">
-                  <Link href="#" className="nav-link fs-5 d-flex align-items-center">
-                  <WarningOutlined />
-                  <span className="ms-3"> Warnings</span>
-                  </Link>
-                </li>
-                <li className="nav-item mx-auto mt-3">
-                  <Link href="#" className="nav-link fs-5 d-flex align-items-center">
-                  <TeamOutlined />
-                  <span className="ms-3"> People</span>
-                  </Link>
-                </li>
-
-
-
-                <li className="nav-item mx-auto mt-3">
-                  <Link href="#" className="nav-link fs-5 d-flex align-items-center">
-                  <WarningOutlined />
-                  <span className="ms-3"> Warnings</span>
-                  </Link>
-                </li>
-                <li className="nav-item mx-auto mt-3">
-                  <Link href="#" className="nav-link fs-5 d-flex align-items-center">
-                  <WarningOutlined />
-                  <span className="ms-3"> Warnings</span>
-                  </Link>
-                </li>
-                <li className="nav-item mx-auto mt-3">
-                  <Link href="#" className="nav-link fs-5 d-flex align-items-center">
-                  <WarningOutlined />
-                  <span className="ms-3"> Warnings</span>
-                  </Link>
-                </li>
-                <li className="nav-item mx-auto mt-3">
-                  <Link href="#" className="nav-link fs-5 d-flex align-items-center">
-                  <WarningOutlined />
-                  <span className="ms-3"> Warnings</span>
-                  </Link>
-                </li>
-                <li className="nav-item mx-auto mt-3">
-                  <Link href="#" className="nav-link fs-5 d-flex align-items-center">
-                  <WarningOutlined />
-                  <span className="ms-3"> Warnings</span>
-                  </Link>
-                </li>
-                <li className="nav-item mx-auto mt-3">
-                  <Link href="#" className="nav-link fs-5 d-flex align-items-center">
-                  <WarningOutlined />
-                  <span className="ms-3"> Warnings</span>
-                  </Link>
-                </li>
-                <li className="nav-item mx-auto mt-3">
-                  <Link href="#" className="nav-link fs-5 d-flex align-items-center">
+                <li className="nav-item ms-3 mt-3">
+                  <Link href="/warnings" className={`nav-link d-flex align-items-center ${router.pathname == "/warnings" ? styles.active : " "}`}>
                   <WarningOutlined />
                   <span className="ms-3"> Warnings</span>
                   </Link>

@@ -1,13 +1,14 @@
 .contNav {
-  background-color: #21688a;
+  background-color: #1b5874;
   font-family: "Tajawal";
+  height: 100%;
 }
 .navbar {
   color: white;
   /* background-color: #21688a; */
   background-color: #1b5874;
   border-right: 1px solid #2a4464;
-  height: 100%;
+  
 }
 
 .logo {
@@ -16,27 +17,29 @@
 }
 
 .logo img {
-  height: 55px;
+  height: 60px;
   width: 100%;
 }
 
 .navbar a{
   color: #b9b9b9;
   font-family: "Tajawal";
+  font-size: 22px;
 }
 .navbar a:hover{
   color: #9bd6f0;
 }
 
 .active{
-  color: white;
+  color: white !important;
+  font-size: 23px;
 }
 
-.HeaderStreams{
+.HeaderTop{
   background-color: #1b5874;
-  padding: 10px 270px;
+  padding: 10px 20px;
 }
-.HeaderStreams h3{
+.HeaderTop h3{
   font-family: "Tajawal";
   color: white;
 }

@@ -103,7 +103,7 @@ const SignUp = () => {
                           <div className="text-danger mt-4">{errors.face_video.message}</div>
                         }
                       </div>
-                      <div className={`d-flex justify-content-start ${errors.face_video?.message ? "mt-3" : "mt-5"}`}>
+                      <div className={`d-flex justify-content-center ${errors.face_video?.message ? "mt-3" : "mt-5"}`}>
                         <Button
                           className={`${styles.btn} border-0 rounded-4 px-5`}
                           type="primary"

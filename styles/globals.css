@@ -4,9 +4,18 @@ body {
   padding: 0;
   margin: 0;
   font-family: "Tajawal";
+  overflow-x: hidden;
 }
 
 .color{
   background-color: #DDD;
   height: 1000px;
+}
+
+.col-shebak-3{
+  width: 22%;
+}
+
+.col-shebak-9{
+  width: 78%;
 }
