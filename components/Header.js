@@ -9,7 +9,7 @@ const Header = () => {
   const router = useRouter();
 
   return (
-    <div className={styles.contNav}>
+    <div className={`${styles.contNav} position-fixed`}>
       <div className="">
         <nav
           className={`${styles.navbar} navbar navbar-expand-lg navbar-light d-flex justify-content-center`}
@@ -29,9 +29,9 @@ const Header = () => {
                   </Link>
                 </li>
                 <li className="nav-item ms-3 mt-3">
-                  <Link href="/students" className={`nav-link d-flex align-items-center ${router.pathname == "/students" ? styles.active : " "}`}>
+                  <Link href="/users" className={`nav-link d-flex align-items-center ${router.pathname == "/users" ? styles.active : " "}`}>
                   <TeamOutlined />
-                  <span className="ms-3">Students</span>
+                  <span className="ms-3">Users</span>
                   </Link>
                 </li>
                 <li className="nav-item ms-3 mt-3">

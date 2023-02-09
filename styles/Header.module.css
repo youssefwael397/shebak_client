@@ -2,6 +2,7 @@
   background-color: #1b5874;
   font-family: "Tajawal";
   height: 100%;
+  width: 22%;
 }
 .navbar {
   color: white;
@@ -35,11 +36,6 @@
   font-size: 23px;
 }
 
-.HeaderTop{
-  background-color: #1b5874;
-  padding: 10px 20px;
-}
 .HeaderTop h3{
-  font-family: "Tajawal";
-  color: white;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
 }

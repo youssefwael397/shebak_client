@@ -1,4 +1,23 @@
-.Warnings{
-    background-color: #174c64;
-    font-family: "Tajawal";
+@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css");
+
+#example_filter input {
+  border-radius: 5px;
+  padding: 8px 5px;
+  margin-bottom: 40px;
+  position: absolute;
+  top: -60px;
+  left: 60%;
+  width: 40%;
+  margin-top: -5px;
+}
+
+.display {
+  border: 1px solid rgb(192, 183, 183);
+  border-radius: 15px;
+  padding: 5px;
+}
+
+.MainDiv {
+  background-color: white;
+  font-family: "Tajawal";
 }

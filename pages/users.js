@@ -20,17 +20,18 @@ const suffix = (
 );
 const onSearch = (value) => console.log(value);
 
-class Warnings extends React.Component {
+class Users extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       tabledata: [
-        { id: 1, stats: "fire", image: "", date: "2021-09-20" },
-        { id: 2, stats: "fight", image: "", date: "2021-09-17" },
-        { id: 3, stats: "fight", image: "", date: "2021-09-17" },
-        { id: 4, stats: "fire", image: "", date: "2021-09-17" },
-        { id: 5, stats: "fight", image: "", date: "2021-09-14" },
-        { id: 6, stats: "fight", image: "", date: "2021-09-14" },
+        { id: 1, name: "Nouran", email: "nouran@gmail.com", face: "" , warnings:"no warning" },
+        { id: 2, name: "Mariam", email: "Mariam@gmail.com", face: "", warnings:"no warning" },
+        { id: 3, name: "Yara", email: "Yara@gmail.com", face: "" , warnings:"no warning"},
+        { id: 4, name: "youssef", email: "youssef@gmail.com", face: "" , warnings:"no warning"},
+        { id: 5, name: "mounir", email: "mounir@gmail.com", face: "" , warnings:"no warning"},
+        { id: 6, name: "mahmoud", email: "mahmoud@gmail.com", face: "" , warnings:"no warning"},
+        { id: 6, name: "mai", email: "mai@gmail.com", face: "" , warnings:"no warning"},
       ],
     };
   }
@@ -65,7 +66,7 @@ class Warnings extends React.Component {
         <div className={`${styles.MainDiv} px-5`}>
 
           <div className="warnings mt-5">
-            <HeaderTop title="Warnings History" />
+            <HeaderTop title="Users" />
             {/* <div>
               <button
                 type="text"
@@ -95,11 +96,7 @@ class Warnings extends React.Component {
 
           <div>
             <div className="mb-3">
-              <div className="form-group d-flex justify-content-between">
-                <input
-                  type="date"
-                  className="dateadded form-control shadow-none w-25"
-                />
+              <div className="form-group d-flex justify-content-start">
                 <Search
                   placeholder="Search"
                   allowClear
@@ -107,7 +104,7 @@ class Warnings extends React.Component {
                   style={{
                     height: "38px",
                   }}
-                  className="w-25"
+                  className="w-50"
                 />
                 {/* <i className="bi bi-search me-4 mt-2"></i> */}
               </div>
@@ -123,7 +120,7 @@ class Warnings extends React.Component {
                       color: 'black',
                     }}
                   >
-                    Stats
+                    Name
                   </th>
                   <th
                     style={{
@@ -132,7 +129,7 @@ class Warnings extends React.Component {
                       color: 'black',
                     }}
                   >
-                    Date
+                    Email
                   </th>
                   <th
                     style={{
@@ -141,7 +138,16 @@ class Warnings extends React.Component {
                       color: 'black',
                     }}
                   >
-                    Capure
+                    Face
+                  </th>
+                  <th
+                    style={{
+                      textAlign: "center",
+                      opacity: "0.7",
+                      color: 'black',
+                    }}
+                  >
+                    Warnings
                   </th>
                   <th
                     style={{
@@ -155,7 +161,7 @@ class Warnings extends React.Component {
                 </tr>
               </thead>
               <tbody>
-                {this.state.tabledata.map(({ stats, date, image, link }) => {
+                {this.state.tabledata.map(({ name, email, face , warnings }) => {
                   return (
                     <tr
                       style={{
@@ -165,7 +171,7 @@ class Warnings extends React.Component {
                       className="tr fs-6"
                     >
                       <td style={{ padding: "16px", paddingLeft: "20px" }}>
-                        {stats}
+                        {name}
                       </td>
                       <td
                         style={{
@@ -174,16 +180,26 @@ class Warnings extends React.Component {
                           opacity: "0.7",
                         }}
                       >
-                        {date}
+                        {email}
                       </td>
                       <td style={{ padding: "16px", textAlign: "center" }}>
-                        <img src={image} alt='' />
+                        <img src={face} alt='' />
+                      </td>
+                      <td
+                        style={{
+                          padding: "16px",
+                          textAlign: "center",
+                          opacity: "0.7",
+                        }}
+                      >
+                        {warnings}
                       </td>
                       <td style={{ padding: "16px" }} className="text-center">
                         <Link href={`warnings/1`} style={{ color: '#21688a', fontWeight: '600' }}>
                           View
                         </Link>
                       </td>
+
                     </tr>
                   );
                 })}
@@ -196,4 +212,4 @@ class Warnings extends React.Component {
   }
 }
 
-export default Warnings;
+export default Users;
