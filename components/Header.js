@@ -2,7 +2,7 @@ import styles from "../styles/Header.module.css";
 import Link from "next/link";
 import { useRouter } from 'next/router';
 import { useState } from "react";
-import { VideoCameraOutlined , WarningOutlined , TeamOutlined} from '@ant-design/icons';
+import { VideoCameraOutlined, WarningOutlined, TeamOutlined } from '@ant-design/icons';
 
 const Header = () => {
 
@@ -18,8 +18,8 @@ const Header = () => {
             <div className="d-flex justify-content-center align-items-start">
               <ul className="list-unstyled mx-5">
                 <li className="nav-item">
-                  <a className={`rounded-5 ${styles.logo}`} href="#">
-                    <img src="images/Logo1.png" className="d-flex align-items-center" />
+                  <a className={`rounded-5 ${styles.logo}`} href="/">
+                    <img src="/images/Logo1.png" className="d-flex align-items-center" />
                   </a>
                 </li>
                 <li className="nav-item ms-3 mt-3">
@@ -30,14 +30,14 @@ const Header = () => {
                 </li>
                 <li className="nav-item ms-3 mt-3">
                   <Link href="/users" className={`nav-link d-flex align-items-center ${router.pathname == "/users" ? styles.active : " "}`}>
-                  <TeamOutlined />
-                  <span className="ms-3">Users</span>
+                    <TeamOutlined />
+                    <span className="ms-3">Users</span>
                   </Link>
                 </li>
                 <li className="nav-item ms-3 mt-3">
                   <Link href="/warnings" className={`nav-link d-flex align-items-center ${router.pathname == "/warnings" ? styles.active : " "}`}>
-                  <WarningOutlined />
-                  <span className="ms-3"> Warnings</span>
+                    <WarningOutlined />
+                    <span className="ms-3"> Warnings</span>
                   </Link>
                 </li>
               </ul>

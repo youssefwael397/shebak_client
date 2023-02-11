@@ -47,7 +47,7 @@ const Stream = () => {
   return (
     <>
       <div className={`${styles.stream} mt-5 px-5`}>
-        <HeaderTop title="Video Streams"/>
+        <HeaderTop title="Video Stream"/>
         <div className={` pt-3 pb-3`}>
           <div className="container">
             <div className={`mt-2 mb-3 ${styles.cont_video} d-flex align-items-center justify-content-center`}>
