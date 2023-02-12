@@ -29,47 +29,49 @@ export default function Warnings() {
               <hr />
               <div className={styles.all}>
                 <div className="row ">
-                  <Vid className={styles.video}
-                    controls
-                  >
-                    <source src={`/${warning?.video_name}`} type="video/mp4"></source>
-                  </Vid>
-                </div>
-                <div className="row">
-                  <div className="App">
-                    <div style={{ padding: "10px", paddingLeft: '50px' }}>
-                      <h4 style={{ marginBottom: "2rem", marginTop: '20px'}} className="text-white">
-                        Video Info
-                      </h4>
+                  <div className="col">
+                    <Vid className={styles.video}
+                      controls
+                    >
+                      <source src={`/${warning?.video_name}`} type="video/mp4"></source>
+                    </Vid>
+                  </div>
+                  <div className="col">
+                    <div className="App">
+                      <div style={{ padding: "10px", paddingLeft: '50px' }}>
+                        <h4 style={{ marginBottom: "2rem", marginTop: '20px' }} className="text-white">
+                          Video Info
+                        </h4>
 
-                      <Timeline className="timeline" style={{ color: '#b9b9b9' }}>
+                        <Timeline className="timeline" style={{ color: '#b9b9b9' }}>
 
-                        <Timeline.Item>
-                          <div className="text-gray-400">
-                            Created at {warning?.date}
-                          </div>
-                        </Timeline.Item>
-                        <Timeline.Item>
-                          <div className="text-gray-400">
-                            Detected Stats is {warning?.status}
-                          </div>
-                        </Timeline.Item>
-                        <Timeline.Item>
-                          <div className="text-gray-400">
+                          <Timeline.Item>
+                            <div className="text-gray-400">
+                              Created at {warning?.date}
+                            </div>
+                          </Timeline.Item>
+                          <Timeline.Item>
+                            <div className="text-gray-400">
+                              Detected Stats is {warning?.status}
+                            </div>
+                          </Timeline.Item>
+                          <Timeline.Item>
+                            <div className="text-gray-400">
 
-                            {/* Took Place at Suez University */}
+                              {/* Took Place at Suez University */}
 
-                            Users in Video <br />ali Ahmed bakry <br /> fathy abdo mostapha <br />
-                            Youssef Wael <br />
-                          </div>
-                        </Timeline.Item>
-                        <Timeline.Item>
-                          <div className="text-gray-400">
-                            Being solved at {warning?.date}
-                          </div>
-                        </Timeline.Item>
-                      </Timeline>
+                              Users in Video <br />ali Ahmed bakry <br /> fathy abdo mostapha <br />
+                              Youssef Wael <br />
+                            </div>
+                          </Timeline.Item>
+                          <Timeline.Item>
+                            <div className="text-gray-400">
+                              Being solved at {warning?.date}
+                            </div>
+                          </Timeline.Item>
+                        </Timeline>
 
+                      </div>
                     </div>
                   </div>
                 </div>
