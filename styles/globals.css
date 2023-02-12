@@ -156,3 +156,20 @@ thead:hover {
 .ant-pagination-prev , .ant-pagination-item{
   margin-right: 2px !important;
 }
+
+.ant-table-filter-dropdown{
+  background-color: #1b3546 !important;
+}
+
+.ant-input{
+  background-color: #1b3546 !important;
+}
+
+.ant-btn-primary{
+  background-color: #2F6782;
+  border-color: #2F6782;
+}
+
+.ant-btn-link{
+  color: #418bab !important;
+}
