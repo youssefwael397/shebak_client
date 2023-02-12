@@ -14,7 +14,6 @@ export default function Warnings() {
   return (
     <div className='bg-gray-800 h-screen p-16 text-gray-100'>
 
-
       {/* {
         warning && <>
           <p>{warning.id}</p>
