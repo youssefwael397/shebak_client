@@ -5,23 +5,28 @@ body {
   margin: 0;
   font-family: "Tajawal";
   overflow-x: hidden;
+  background-image: url("/images/bg.jpeg");
+  background-color: #152d39 !important;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
-.color{
+.color {
   background-color: #DDD;
   height: 1000px;
 }
 
-.col-shebak-3{
+.col-shebak-3 {
   width: 22%;
 }
 
-.col-shebak-9{
+.col-shebak-9 {
   width: 78%;
 }
 
 /* warning */
-.dataTables_filter input{
+.dataTables_filter input {
   position: absolute;
   top: -54px;
   left: 60%;
@@ -36,14 +41,118 @@ body {
   display: none;
 }
 
-.ant-input-affix-wrapper{
+.ant-input-affix-wrapper {
   height: 38px !important;
   border-radius: .375rem 0px 0px .375rem !important;
   box-shadow: none !important;
 }
-.ant-input-search-button{
+
+.ant-input-search-button {
   height: 38px !important;
   width: 40px !important;
   border-radius: 0px .375rem .375rem 0px !important;
   box-shadow: none !important;
+}
+
+/* warning page*/
+
+.ant-table table,
+.ant-table table:hover {
+  background-color: #112834 !important;
+}
+
+.ant-table-thead>tr>th {
+  color: #2F6782 !important;
+  background: none !important;
+  font-size: 18px;
+  font-weight: 600 !important;
+  text-align: center !important;
+}
+
+.ant-table-row {
+  color: #C1C1C1;
+}
+
+.ant-table-tbody>tr>td {
+  font-size: 18px;
+  text-align: center !important;
+}
+
+.ant-table-tbody>tr>td {
+  border-bottom: 1px solid #142f3c !important;
+}
+
+.ant-table-thead>tr>th {
+  border-bottom: 1px solid #142f3c !important;
+}
+
+table:hover,
+tr:hover,
+thead:hover {
+    background: #193344 !important;
+}
+
+.ant-table-tbody > tr.ant-table-row:hover > td {
+  background: none !important;
+}
+
+.ant-timeline .ant-timeline-item-head {
+  background-color: #1a3342 !important;
+}
+
+.ant-timeline-item-content {
+  font-size: 19px;
+  font-weight: 600;
+}
+
+.ant-timeline .ant-timeline-item-head-blue {
+  border-color: rgb(222, 210, 210) !important;
+}
+
+.ant-timeline .ant-timeline-item-head-blue {
+  border-color: rgb(185, 185, 185) !important;
+}
+
+.ant-timeline .ant-timeline-item-head {
+  width: 15px;
+  height: 15px;
+}
+
+.ant-timeline .ant-timeline-item-tail {
+  border-inline-start: 2px solid rgb(185, 185, 185) !important;
+  inset-inline-start: 6px;
+}
+
+.ant-breadcrumb {
+  color: white !important;
+}
+
+.ant-breadcrumb .ant-breadcrumb-separator {
+  color: #f8f9fa !important;
+}
+
+.ant-breadcrumb a {
+  color: white !important;
+  text-decoration: none;
+}
+
+.ant-breadcrumb a:hover {
+  background-color: transparent !important;
+  border: none;
+  color: white !important;
+}
+
+.ant-pagination-disabled .ant-pagination-item-link , .ant-pagination-item-active{
+  color: #C1C1C1 !important;
+  background-color: #0f2530 !important;
+  border: none !important;
+  width: 45px;
+}
+
+.ant-pagination-item-active{
+  color: white !important;
+}
+
+.ant-pagination-prev , .ant-pagination-item{
+  margin-right: 2px !important;
 }

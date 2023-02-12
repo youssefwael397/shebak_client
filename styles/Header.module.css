@@ -1,15 +1,16 @@
 .contNav {
   background-color: #1b5874;
+  background-color: transparent;
   font-family: "Tajawal";
   height: 100%;
   width: 22%;
+  border-right: 1px solid #434e54;
 }
 .navbar {
   color: white;
   /* background-color: #21688a; */
   background-color: #1b5874;
-  border-right: 1px solid #2a4464;
-  
+  background-color: transparent;
 }
 
 .logo {
@@ -37,5 +38,6 @@
 }
 
 .HeaderTop h3{
+  color: white;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
 }

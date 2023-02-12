@@ -46,66 +46,48 @@ const WarningsPage = () => {
       title: 'Show',
       dataIndex: 'show',
       key: 'show',
-      render: (_, warning) =>
-        <Link href={`/warnings/${warning.id}`} >
-          <EyeOutlined />
-        </Link>
-    },
+  render: (_, warning) =>
+    <div className={`${styles.show} mx-auto`}>
+      <Link href={`/warnings/${warning.id}`} >
+        <EyeOutlined style={{ fontSize: '16px', color: '#66B4D2' }} />
+      </Link>
+    </div>
+},
   ];
 
-  useEffect(() => {
-    $(document).ready(function () {
-      $("#example").DataTable();
-    });
-    //datepicker on change
-    $(".dateadded").on("change", function (ret) {
-      var v = ret.target.value; // getting search input value
+useEffect(() => {
+  $(document).ready(function () {
+    $("#example").DataTable();
+  });
+  //datepicker on change
+  $(".dateadded").on("change", function (ret) {
+    var v = ret.target.value; // getting search input value
 
-      $("#example").DataTable().columns(3).search(v).draw();
-    });
+    $("#example").DataTable().columns(3).search(v).draw();
+  });
 
-    $("#example").DataTable({
-      //remove search lable dont forget ya mariem
-      language: { search: "" },
+  $("#example").DataTable({
+    //remove search lable dont forget ya mariem
+    language: { search: "" },
 
-    });
-  }, [])
+  });
+}, [])
 
-  return (
-    <>
-      <div className={`${styles.MainDiv} px-5`}>
+return (
+  <>
+    <div className={`${styles.MainDiv} px-4 me-3`}>
 
-        <div className="warnings mt-5">
-          <HeaderTop title="Warnings History" />
-        </div>
-        <br />
-
-        <div>
-          <div className="mb-3">
-            <div className="form-group d-flex justify-content-between">
-              <input
-                type="date"
-                className="dateadded form-control shadow-none w-25"
-              />
-              <Search
-                placeholder="Search"
-                allowClear
-                onSearch={onSearch}
-                style={{
-                  height: "38px",
-                }}
-                className="w-25"
-              />
-              {/* <i className="bi bi-search me-4 mt-2"></i> */}
-            </div>
-          </div>
-
-          <Table columns={columns} dataSource={newDataSet} />
-
-        </div>
+      <div className="warnings mt-5">
+        <HeaderTop title="Warnings History" />
       </div>
-    </>
-  );
+      <br />
+
+      <div>
+        <Table columns={columns} dataSource={newDataSet}/>
+      </div>
+    </div>
+  </>
+);
 
 }
 
