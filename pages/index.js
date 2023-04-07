@@ -10,29 +10,12 @@ import HeaderTop from "../components/HeaderTop";
 
 
 const Stream = () => {
-  const [socket, setSocket] = useState(null);
+  const [socket, setSocket] = useState(true);
   const [src, setSrc] = useState(null);
   const [message, setMessage] = useState("message");
 
   useEffect(() => {
-    try {
-      const newSocket = io(`http://localhost:5000`);
-      console.log(newSocket);
-      console.log('connection established: ', newSocket.connected)
-      setSocket(newSocket);
-      // return () => newSocket.close();
-      newSocket.on('rtc', (data) => {
-        console.log(data)
-        let blob = new Blob([data], { type: 'image/jpeg' })
-        const blobUrl = URL.createObjectURL(blob) // blob is the Blob object
-        // image.src =  // image is the image element from the DOM
-        // const src = `data:image/jpg;base64, ${blob}`
-        setSrc(blobUrl)
-      })
-
-    } catch (error) {
-      console.log(error)
-    }
+    setSrc('http://localhost:8000/stream')
   }, []);
 
   // const sendMessage = (e) => {
@@ -47,53 +30,24 @@ const Stream = () => {
   return (
     <>
       <div className={`${styles.stream} mt-5 px-5`}>
-        <HeaderTop title="Video Stream"/>
+        <HeaderTop title="Video Stream" />
         <div className={` pt-3 pb-3`}>
           <div className="container">
             <div className={`mt-2 mb-3 ${styles.cont_video} d-flex align-items-center justify-content-center`}>
               <div className="d-flex align-items-center">
-                {
-                  socket ?
-                    <div className="text-center mx-auto w-100">
-                      <div className="mb-5">
-                        <div className={`${CamStyles.videoContainer} ${CamStyles.StreamvideoContainer} position-relative`}>
-                          {/* <div>Socket Connected</div> */}
-
-                          <img
-                            src={src}
-                            width="700"
-                            height="495.5"
-                            className="rounded-4"
-                          />
-
-                          {/* <video
-                        ref={streamRef}
-                        className=" border border-1 rounded mt-3 bg-dark"
-                        id="preview"
-                        width="600"
-                        height="455.5"
-                        autoPlay
-                        muted
-                      ></video> */}
-
-                          {/* <p className="lead mx-4 mt-3 mb-2 fw-bold fs-4">Status: {webCamStatus}</p> */}
-
-                          {/* {webCamStatus == "Closed" || webCamStatus == "Stopped" ? (
-                        <button
-                          className={`btn border-0 ${CamStyles.btn_open_cam}`}
-                          type="button"
-                          onClick={openCam}
-                        >
-                          <PlayCircleOutlined
-                            style={{ fontSize: "50px", color: "#e0e0e0" }}
-                          />
-                        </button>
-                      ) : null} */}
-                        </div>
-                      </div>
-                    </div> :
-                    <div>Socket Not Connected</div>
-                }
+                <div className="text-center mx-auto w-100">
+                  <div className="mb-5">
+                    <div className={`${CamStyles.videoContainer} ${CamStyles.StreamvideoContainer} position-relative`}>
+                      {/* <div>Socket Connected</div> */}
+                      <img
+                        src={src}
+                        width="700"
+                        height="495.5"
+                        className="rounded-4"
+                      />
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
