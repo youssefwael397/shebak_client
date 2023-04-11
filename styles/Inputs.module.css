@@ -1,5 +1,10 @@
-.label{
-  color: #868686;
+.label {
+  color: #C1C1C1;
+}
+
+.input {
+  background-color: transparent;
+  color: white;
 }
 
 /* .label label {

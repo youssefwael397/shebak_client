@@ -43,7 +43,7 @@ export default function FaceRecorder({ setValue }) {
                     <div className={`${styles.videoContainer} position-relative`}>
                         <video
                             ref={streamRef}
-                            className=' border border-1 rounded mt-3 bg-dark'
+                            className=' border border-1 rounded mt-3 '
                             id="preview"
                             width="400"
                             height="275.5"

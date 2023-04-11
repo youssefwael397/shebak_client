@@ -11,10 +11,14 @@ import { Input, Table } from 'antd';
 import { useEffect } from "react";
 import { newDataSet } from "../lib/warnings";
 import useSafqaTableSearch from "../lib/ShebakTableSearch";
+import { getUsers } from "../store/slices/usersSlice";
+import { useDispatch, useSelector } from "react-redux";
+import { getWarnings } from "../store/slices/warningSlice";
 const { Search } = Input;
 
 const WarningsPage = () => {
-
+  const dispatch = useDispatch()
+  const { warnings } = useSelector(state => state.warning)
   const onSearch = (value) => console.log(value);
   const { getColumnSearchProps } = useSafqaTableSearch()
 
@@ -46,48 +50,52 @@ const WarningsPage = () => {
       title: 'Show',
       dataIndex: 'show',
       key: 'show',
-  render: (_, warning) =>
-    <div className={`${styles.show} mx-auto`}>
-      <Link href={`/warnings/${warning.id}`} >
-        <EyeOutlined style={{ fontSize: '16px', color: '#66B4D2' }} />
-      </Link>
-    </div>
-},
+      render: (_, warning) =>
+        <div className={`${styles.show} mx-auto`}>
+          <Link href={`/warnings/${warning.id}`} >
+            <EyeOutlined style={{ fontSize: '16px', color: '#66B4D2' }} />
+          </Link>
+        </div>
+    },
   ];
 
-useEffect(() => {
-  $(document).ready(function () {
-    $("#example").DataTable();
-  });
-  //datepicker on change
-  $(".dateadded").on("change", function (ret) {
-    var v = ret.target.value; // getting search input value
+  useEffect(() => {
+    $(document).ready(function () {
+      $("#example").DataTable();
+    });
+    //datepicker on change
+    $(".dateadded").on("change", function (ret) {
+      var v = ret.target.value; // getting search input value
 
-    $("#example").DataTable().columns(3).search(v).draw();
-  });
+      $("#example").DataTable().columns(3).search(v).draw();
+    });
 
-  $("#example").DataTable({
-    //remove search lable dont forget ya mariem
-    language: { search: "" },
+    $("#example").DataTable({
+      //remove search lable dont forget ya mariem
+      language: { search: "" },
 
-  });
-}, [])
+    });
+  }, [])
 
-return (
-  <>
-    <div className={`${styles.MainDiv} px-4 me-3`}>
+  // useEffect(() => {
+  //   dispatch(getWarnings())
+  // }, [])
 
-      <div className="warnings mt-5">
-        <HeaderTop title="Warnings History" />
+  return (
+    <>
+      <div className={`${styles.MainDiv} px-4 me-3`}>
+
+        <div className="warnings mt-5">
+          <HeaderTop title="Warnings History" />
+        </div>
+        <br />
+
+        <div>
+          <Table columns={columns} dataSource={newDataSet} />
+        </div>
       </div>
-      <br />
-
-      <div>
-        <Table columns={columns} dataSource={newDataSet}/>
-      </div>
-    </div>
-  </>
-);
+    </>
+  );
 
 }
 

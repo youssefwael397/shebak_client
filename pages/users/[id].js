@@ -72,19 +72,14 @@ export default function Users() {
                     <h1 style={{ marginBottom: "2rem", marginTop: '50px', color: 'white' }}>
                       Video Info
                     </h1>
-
                     <Timeline className="timeline" style={{ color: '#b9b9b9' }}>
-
                       <Timeline.Item>
-
                       </Timeline.Item>
                     </Timeline>
-
                   </div>
                 </div>
               </div>
             </div>
-
           </div> */}
         </>
       }

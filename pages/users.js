@@ -11,10 +11,13 @@ import { Input, Table } from 'antd';
 import { useEffect } from "react";
 import { newDataSet } from "../lib/users";
 import useSafqaTableSearch from "../lib/ShebakTableSearch";
+import { useDispatch, useSelector } from "react-redux";
 const { Search } = Input;
 
 const UsersPage = () => {
 
+  const dispatch = useDispatch()
+  const { users } = useSelector(state => state.user)
   const onSearch = (value) => console.log(value);
   const { getColumnSearchProps } = useSafqaTableSearch()
 
@@ -78,6 +81,11 @@ const UsersPage = () => {
 
     });
   }, [])
+
+
+  // useEffect(() => {
+  //   dispatch(getUsers())
+  // }, [])
 
   return (
     <>
