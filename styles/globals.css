@@ -167,10 +167,22 @@ thead:hover {
 }
 
 .ant-btn-primary{
-  background-color: #2F6782;
-  border-color: #2F6782;
+  background-color: #2F6782 !important;
+  border-color: #2F6782 !important;
 }
 
 .ant-btn-link{
   color: #418bab !important;
+}
+
+.ant-dropdown{
+  left: 314px !important;
+  border: 1px solid #DDD !important;
+}
+.ant-table-filter-dropdown{
+  padding: 10px;
+}
+
+.mark, mark{
+  background-color: #679ab7 !important;
 }
