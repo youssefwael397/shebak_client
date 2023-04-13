@@ -7,25 +7,31 @@ import { PlayCircleOutlined } from "@ant-design/icons";
 import CamStyles from "../styles/RecordVideo.module.css";
 import captureVideoFrame from "capture-video-frame";
 import HeaderTop from "../components/HeaderTop";
+import { useDispatch } from "react-redux";
+import { startStream, stopStream } from "../store/slices/streamSlice";
 
 
 const Stream = () => {
   const [socket, setSocket] = useState(true);
-  const [src, setSrc] = useState(null);
+  const [isStreaming, setIsStreaming] = useState(true);
+  const [src, setSrc] = useState("http://localhost:8000/stream");
   const [message, setMessage] = useState("message");
+  const dispatch = useDispatch()
 
-  useEffect(() => {
+
+  const handleStartStream = () => {
+    dispatch(startStream())
+    setIsStreaming(true)
     setSrc('http://localhost:8000/stream')
-  }, []);
+  }
 
-  // const sendMessage = (e) => {
-  //   e.preventDefault();
-  //   if (message) {
-  //     // console.log(socket)
-  //     console.log(message)
-  //     socket.emit('face_recognition', { "message": message })
-  //   }
-  // };
+
+  const handleStopStream = () => {
+    dispatch(stopStream())
+    setIsStreaming(false)
+    setSrc('')
+  }
+
 
   return (
     <>
@@ -39,35 +45,24 @@ const Stream = () => {
                   <div className="mb-5">
                     <div className={`${CamStyles.videoContainer} ${CamStyles.StreamvideoContainer} position-relative`}>
                       {/* <div>Socket Connected</div> */}
-                      <img
-                        src={src}
-                        width="700"
-                        height="495.5"
-                        className="rounded-4"
-                      />
+                      {
+                        isStreaming && <img
+                          src={src || ''}
+                          width="700"
+                          height="495.5"
+                          className="rounded-4 border border-1"
+                        />
+                      }
+                      <div className="text-center mt-3">
+                        <button className="btn btn-primary mx-2" onClick={handleStartStream}>Start</button>
+                        <button className="btn btn-secondary mx-2" onClick={handleStopStream}>Stop</button>
+                      </div>
                     </div>
                   </div>
                 </div>
               </div>
             </div>
           </div>
-
-          {/* {socket ? (
-        <div className="chat-container mt-3">
-          <form>
-            <input
-              value={message}
-              placeholder="Type your message"
-              onChange={(e) => {
-                setMessage(e.target.value)
-              }}
-            />
-            <button type="submit" onClick={sendMessage}>Send</button>
-          </form>
-        </div>
-      ) : (
-        <div>Socket Not Connected</div>
-      )} */}
         </div>
       </div>
     </>

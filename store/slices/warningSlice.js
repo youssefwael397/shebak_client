@@ -56,7 +56,7 @@ const initialState = {
 }
 
 export const warningSlice = createSlice({
-    name: 'auth',
+    name: 'warning',
     initialState,
     reducers: {
         ResetSuccess(state) {
@@ -72,7 +72,7 @@ export const warningSlice = createSlice({
             state.is_loading = false;
             state.is_success = true;
             state.api_errors = [];
-            state.warnings = payload.data;
+            state.warnings = payload.warnings;
         },
         [getWarnings.rejected]: (state, { payload }) => {
             state.is_loading = false;

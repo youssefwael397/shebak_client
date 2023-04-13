@@ -34,6 +34,7 @@ export const getUser = createAsyncThunk(
 const initialState = {
     is_loading: false,
     is_success: false,
+    api_errors: null,
     users: [],
     user: {},
 }
@@ -55,7 +56,7 @@ export const userSlice = createSlice({
             state.is_loading = false;
             state.is_success = true;
             state.api_errors = [];
-            state.users = payload.data;
+            state.users = payload.users;
         },
         [getUsers.rejected]: (state, { payload }) => {
             state.is_loading = false;
