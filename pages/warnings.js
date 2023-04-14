@@ -11,14 +11,16 @@ import { Input, Table } from 'antd';
 import { useEffect } from "react";
 import { newDataSet } from "../lib/warnings";
 import useSafqaTableSearch from "../lib/ShebakTableSearch";
-import { getUsers } from "../store/slices/usersSlice";
+import { getUsers } from "../store/slices/userSlice";
 import { useDispatch, useSelector } from "react-redux";
 import { getWarnings } from "../store/slices/warningSlice";
+import VideoPlayer from "../components/VideoPlayer";
 const { Search } = Input;
+
 
 const WarningsPage = () => {
   const dispatch = useDispatch()
-  const { warnings } = useSelector(state => state.warning)
+  const { warnings, is_loading } = useSelector(state => state.warning)
   const onSearch = (value) => console.log(value);
   const { getColumnSearchProps } = useSafqaTableSearch()
 
@@ -41,9 +43,7 @@ const WarningsPage = () => {
       key: 'video_name',
       render: (_, warning) =>
         <>
-          <video className="mx-auto text-center" width="200">
-            <source src="/video.mp4" type="video/mp4" />
-          </video>
+          <VideoPlayer videoSrc={`http://localhost:8000/video/${warning.video_name}`} />
         </>
     },
     {
@@ -77,9 +77,9 @@ const WarningsPage = () => {
     });
   }, [])
 
-  // useEffect(() => {
-  //   dispatch(getWarnings())
-  // }, [])
+  useEffect(() => {
+    dispatch(getWarnings())
+  }, [dispatch])
 
   return (
     <>
@@ -91,7 +91,7 @@ const WarningsPage = () => {
         <br />
 
         <div>
-          <Table columns={columns} dataSource={newDataSet} />
+          <Table columns={columns} dataSource={warnings} loading={is_loading} />
         </div>
       </div>
     </>

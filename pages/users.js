@@ -12,21 +12,22 @@ import { useEffect } from "react";
 import { newDataSet } from "../lib/users";
 import useSafqaTableSearch from "../lib/ShebakTableSearch";
 import { useDispatch, useSelector } from "react-redux";
+import { getUsers } from "../store/slices/userSlice";
 const { Search } = Input;
 
 const UsersPage = () => {
 
   const dispatch = useDispatch()
-  const { users } = useSelector(state => state.user)
+  const { users, is_loading } = useSelector(state => state.user)
   const onSearch = (value) => console.log(value);
   const { getColumnSearchProps } = useSafqaTableSearch()
 
   const columns = [
     {
       title: 'Name',
-      dataIndex: 'name',
-      key: 'name',
-      ...getColumnSearchProps('name'),
+      dataIndex: 'username',
+      key: 'username',
+      ...getColumnSearchProps('username'),
     },
     {
       title: 'Email',
@@ -35,14 +36,16 @@ const UsersPage = () => {
       ...getColumnSearchProps('email'),
     },
     {
-      title: 'Face Record',
-      dataIndex: 'face_record',
-      key: 'face_record',
-      render: (_, warning) =>
+      title: 'Face Image',
+      dataIndex: 'photo',
+      key: 'photo',
+      render: (_, user) =>
         <>
-          <video className="mx-auto text-center" width="200">
-            <source src="/video.mp4" type="video/mp4" />
-          </video>
+          <img
+            width="200"
+            className="mx-auto text-center"
+            src={`http://localhost:8000/${user.photo}`}
+          />
         </>
     },
     // {
@@ -83,9 +86,9 @@ const UsersPage = () => {
   }, [])
 
 
-  // useEffect(() => {
-  //   dispatch(getUsers())
-  // }, [])
+  useEffect(() => {
+    dispatch(getUsers())
+  }, [dispatch])
 
   return (
     <>
@@ -97,7 +100,11 @@ const UsersPage = () => {
         <br />
 
         <div>
-          <Table columns={columns} dataSource={newDataSet} />
+          <Table
+            columns={columns}
+            dataSource={users}
+            loading={is_loading}
+          />
         </div>
       </div>
     </>

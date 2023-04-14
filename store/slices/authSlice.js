@@ -24,6 +24,7 @@ export const register = createAsyncThunk(
 const initialState = {
     is_loading: false,
     is_success: false,
+    api_errors: null,
 
     registerInfo: {
         username: '',
