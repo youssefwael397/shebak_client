@@ -5,6 +5,7 @@ import Layout from "../components/Layout";
 import { Provider } from "react-redux";
 import { store } from "../store/store";
 import "antd/dist/antd.css";
+import { ThemeProvider } from 'next-themes'
 
 function MyApp({ Component, pageProps }) {
   return (
@@ -30,7 +31,9 @@ function MyApp({ Component, pageProps }) {
           Component.getLayout ?
             Component.getLayout(<Component {...pageProps} />) :
             <Layout>
-              <Component {...pageProps} />
+              <ThemeProvider>
+                <Component {...pageProps} />
+              </ThemeProvider>
             </Layout>
         }
       </Provider>

@@ -43,13 +43,14 @@
   margin-top: 20px;
   /* margin-left: 150px; */
 }
-
+/* 
 .title{
   color: #66B4D2;
-}
+} */
 
 .data{
   color: #C1C1C1;
+  line-height: 2;
 }
 
 .warning p{

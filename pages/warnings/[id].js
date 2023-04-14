@@ -28,15 +28,15 @@ export default function Warnings() {
               <h5 className={`mt-5 fs-5 text-white ${styles.title}`}>Warning info</h5>
               <hr />
               <div className={styles.all}>
-                <div className="row ">
-                  <div className="col">
+                <div>
+                  <div>
                     <Vid className={styles.video}
                       controls
                     >
                       <source src={`/${warning?.video_name}`} type="video/mp4"></source>
                     </Vid>
                   </div>
-                  <div className="col">
+                  {/* <div className="col">
                     <div className="App">
                       <div style={{ padding: "10px", paddingLeft: '50px' }}>
                         <h4 style={{ marginBottom: "2rem", marginTop: '20px' }} className="text-white">
@@ -57,9 +57,6 @@ export default function Warnings() {
                           </Timeline.Item>
                           <Timeline.Item>
                             <div className="text-gray-400">
-
-                              {/* Took Place at Suez University */}
-
                               Users in Video <br />ali Ahmed bakry <br /> fathy abdo mostapha <br />
                               Youssef Wael <br />
                             </div>
@@ -73,8 +70,33 @@ export default function Warnings() {
 
                       </div>
                     </div>
+                  </div> */}
+                </div>
+                <div className="App">
+                  <div className=" mt-3 text-white">
+                    <div className="text-gray-400 ms-5">
+                      <h4 className="text-white">Users in Video</h4>
+                      <p className={`${styles.data} fs-5`}>
+                        ali Ahmed bakry <br /> fathy abdo mostapha <br />
+                        Youssef Wael <br /> Ali Mohamed
+                      </p>
+                    </div>
+
                   </div>
                 </div>
+              </div>
+
+              <div className=" mt-3 fs-5 text-white">
+                <div className="text-gray-400">
+                  Created : {warning?.date}
+                </div>
+
+                <div className="text-gray-400">
+                  Detected Stats : {warning?.status}
+                </div>
+                {/* <div className="text-gray-400">
+                  Being solved at {warning?.date}
+                </div> */}
               </div>
 
             </div>

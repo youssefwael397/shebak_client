@@ -25,7 +25,7 @@ export default function Users() {
           <div className="container">
             <div className={`mt-5 mb-4 px-4 me-3 ${styles.warning}`}>
               <div className={`rounded-2`}>
-                <h5 className={`mt-5 fs-5 ${styles.title}`}>User info</h5>
+                <h5 className={`mt-5 fs-5 text-white ${styles.title}`}>User info</h5>
                 <hr />
                 <div className="row">
                   <div className="col-xl-4 col-lg-4 col-md-6 col-sm-6">
