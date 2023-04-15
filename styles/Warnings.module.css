@@ -21,7 +21,7 @@
   font-family: "Tajawal";
 }
 
-.show{
+.show {
   width: 10px;
   background-color: #62afcc2e;
   width: 39px;
@@ -30,38 +30,49 @@
   justify-content: center;
   border-radius: 50%;
 }
-.show a{
+
+.show a {
   margin-top: 3px;
 }
 
-.all{
+.all {
   display: flex;
 }
-.video{
+
+.video {
   width: 643px;
-  box-shadow: 2px 2px 6px #000000;
   margin-top: 20px;
+  border-radius: 10px;
   /* margin-left: 150px; */
 }
+
 /* 
 .title{
   color: #66B4D2;
 } */
 
-.data{
+.data {
   color: #C1C1C1;
   line-height: 2;
 }
 
-.warning p{
+.warning p {
   font-size: 16px;
 }
 
-.warning hr{
+.warning hr {
   border: 1px solid #66b4d217;
   opacity: 1;
 }
 
-.user_video{
+.user_video {
   width: 543px;
+}
+
+.blur {
+  /* filter: blur(8px);
+  -webkit-filter: blur(8px); */
+  /* width: 330px; */
+  background-color: #11283475;
+  border-radius: 10px;
 }

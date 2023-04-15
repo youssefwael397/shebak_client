@@ -89,10 +89,10 @@ body {
 table:hover,
 tr:hover,
 thead:hover {
-    background: #193344 !important;
+  background: #193344 !important;
 }
 
-.ant-table-tbody > tr.ant-table-row:hover > td {
+.ant-table-tbody>tr.ant-table-row:hover>td {
   background: none !important;
 }
 
@@ -142,47 +142,60 @@ thead:hover {
   color: white !important;
 }
 
-.ant-pagination-disabled .ant-pagination-item-link , .ant-pagination-item-active{
+.ant-pagination-disabled .ant-pagination-item-link,
+.ant-pagination-item-active {
   color: #C1C1C1 !important;
   background-color: #0f2530 !important;
   border: none !important;
   width: 45px;
 }
 
-.ant-pagination-item-active{
+.ant-pagination-item-active {
   color: white !important;
 }
 
-.ant-pagination-prev , .ant-pagination-item{
+.ant-pagination-prev,
+.ant-pagination-item {
   margin-right: 2px !important;
 }
 
-.ant-table-filter-dropdown{
+.ant-table-filter-dropdown {
   background-color: #1b3546 !important;
 }
 
-.ant-input{
+.ant-input {
   background-color: #1b3546 !important;
   color: white !important;
 }
 
-.ant-btn-primary{
+.ant-btn-primary {
   background-color: #2F6782 !important;
   border-color: #2F6782 !important;
 }
 
-.ant-btn-link{
+.ant-btn-link {
   color: #418bab !important;
 }
 
-.ant-dropdown{
+.ant-dropdown {
   left: 314px !important;
-  border: 1px solid #DDD !important;
+  /* border: 1px solid #DDD !important; */
 }
-.ant-table-filter-dropdown{
+
+.ant-table-filter-dropdown {
   padding: 10px;
 }
 
-.mark, mark{
+.mark,
+mark {
   background-color: #679ab7 !important;
+}
+
+.rh5v-DefaultPlayer_component {
+  border-radius: 10px !important;
+  background-color: transparent !important;
+}
+
+.rh5v-DefaultPlayer_video {
+  border-radius: 10px !important;
 }

@@ -7,7 +7,7 @@ import "react-html5video/dist/styles.css";
 import BreadCrumb from "../../components/BreadCrumb";
 import { Timeline } from "antd";
 import styles from "../../styles/Warnings.module.css";
-import { Html5Filled } from "@ant-design/icons";
+import { ClockCircleOutlined, FileSearchOutlined, Html5Filled } from "@ant-design/icons";
 
 export default function Warnings() {
   const router = useRouter()
@@ -72,27 +72,29 @@ export default function Warnings() {
                     </div>
                   </div> */}
                 </div>
-                <div className="App">
-                  <div className=" mt-3 text-white">
-                    <div className="text-gray-400 ms-5">
+                <div className={`App `}>
+                  <div className={`mt-3 ms-4 p-5 d-flex ${styles.blur}`}>
+                    <div className="text-gray-400 mx-auto p-2">
                       <h4 className="text-white">Users in Video</h4>
-                      <p className={`${styles.data} fs-5`}>
-                        ali Ahmed bakry <br /> fathy abdo mostapha <br />
-                        Youssef Wael <br /> Ali Mohamed
+                      <p className={`${styles.data} mb-4 fs-5`}>
+                        ali Ahmed bakry <br /> fathy abdo mostapha<br />
+                        Youssef Wael <br /> Ali Mohamed <br /> Mohamed Mounir
                       </p>
                     </div>
-
                   </div>
+                  {/* <div className={`${styles.blur} ms-4`}>
+
+                  </div> */}
                 </div>
               </div>
 
-              <div className=" mt-3 fs-5 text-white">
-                <div className="text-gray-400">
-                  Created : {warning?.date}
+              <div className={`mt-3 fs-5 ${styles.data}`}>
+                <div className="text-gray-400 d-flex align-items-center">
+                  <ClockCircleOutlined className="me-2" style={{color: "#72a2ba"}}/> Created : {warning?.date}
                 </div>
 
-                <div className="text-gray-400">
-                  Detected Stats : {warning?.status}
+                <div className="text-gray-400 d-flex align-items-center">
+                  <FileSearchOutlined className="me-2" style={{color: "#72a2ba"}}/> Detected Stats : {warning?.status}
                 </div>
                 {/* <div className="text-gray-400">
                   Being solved at {warning?.date}
