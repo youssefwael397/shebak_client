@@ -36,7 +36,7 @@ const initialState = {
     is_success: false,
     api_errors: null,
     users: [],
-    user: null,
+    user_warning: null,
     imgPath: "http://localhost:8000"
 }
 
@@ -66,16 +66,19 @@ export const userSlice = createSlice({
         // get user
         [getUser.pending]: (state, { payload }) => {
             state.is_loading = true;
+            state.user_warning = null;
         },
         [getUser.fulfilled]: (state, { payload }) => {
             state.is_loading = false;
             state.is_success = true;
             state.api_errors = null;
-            state.user = payload;
+            state.user_warning = payload;
         },
         [getUser.rejected]: (state, { payload }) => {
             state.is_loading = false;
             state.is_success = false;
+            state.user_warning = null;
+            console.log(first)
             state.api_errors = payload.response.data.message
         }
     }

@@ -6,7 +6,7 @@ import "datatables.net-dt/css/jquery.dataTables.min.css";
 import $ from "jquery";
 import HeaderTop from "../components/HeaderTop";
 import Link from "next/link";
-import { AudioOutlined, EyeOutlined } from '@ant-design/icons';
+import { AudioOutlined, EyeOutlined, DownloadOutlined} from '@ant-design/icons';
 import { Input, Table } from 'antd';
 import { useEffect } from "react";
 import { newDataSet } from "../lib/warnings";
@@ -24,6 +24,7 @@ const WarningsPage = () => {
   const onSearch = (value) => console.log(value);
   const { getColumnSearchProps } = useSafqaTableSearch()
 
+  
   const columns = [
     {
       title: 'Status',
@@ -38,13 +39,15 @@ const WarningsPage = () => {
       ...getColumnSearchProps('date'),
     },
     {
-      title: 'Thumbnail',
+      title: 'Download Video',
       dataIndex: 'video_name',
       key: 'video_name',
       render: (_, warning) =>
         <>
-          <VideoPlayer videoSrc={`http://localhost:8000/video/${warning.video_name}`} />
-        </>
+          <Link download={true} href={`http://localhost:8000/api/warnings/video/${warning.video_name}`} >
+            <DownloadOutlined style={{ fontSize: '16px', color: '#66B4D2' }} />
+          </Link>
+        </> 
     },
     {
       title: 'Show',

@@ -22,7 +22,7 @@ export const getWarning = createAsyncThunk(
     async (id, { rejectWithValue }) => {
         try {
             console.log('register thunk')
-            const url = `/api/warnings/${id}`;
+            const url = `/api/user_warnings/users/${id}`;
             const res = await axiosInstance.get(url);
             return res.data;
         } catch (err) {
@@ -34,7 +34,7 @@ export const getWarning = createAsyncThunk(
 
 
 export const extractFaces = createAsyncThunk(
-    "warning",
+    "warning/extract",
     async (id, { rejectWithValue }) => {
         try {
             console.log('register thunk')
@@ -50,6 +50,7 @@ export const extractFaces = createAsyncThunk(
 const initialState = {
     is_loading: false,
     is_success: false,
+    api_errors: null,
     warnings: [],
     warning: {},
     user_warnings : []
@@ -81,17 +82,20 @@ export const warningSlice = createSlice({
         // get warning
         [getWarning.pending]: (state, { payload }) => {
             state.is_loading = true;
+            state.api_errors = null;
+
         },
         [getWarning.fulfilled]: (state, { payload }) => {
             state.is_loading = false;
             state.is_success = true;
-            state.api_errors = [];
-            state.warning = payload.data;
+            state.api_errors = null;
+            state.warning = {users : payload};
             console.log(payload);
         },
         [getWarning.rejected]: (state, { payload }) => {
             state.is_loading = false;
             state.is_success = false;
+            state.api_errors = payload.response.data?.message;
         },
         // get extracted faces
         [extractFaces.pending]: (state, { payload }) => {
