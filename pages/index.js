@@ -1,6 +1,5 @@
 import styles from "../styles/Stream.module.css";
 import StreamVideo from "../components/StreamVideo";
-import usePyramidWebCam from "pyramid-webcam";
 import io from 'socket.io-client';
 import { useEffect, useRef, useState } from "react";
 import { PlayCircleOutlined } from "@ant-design/icons";
@@ -46,8 +45,8 @@ const Stream = () => {
                     <div className={`${CamStyles.videoContainer} ${CamStyles.StreamvideoContainer} position-relative`}>
                       {/* <div>Socket Connected</div> */}
                       {
-                        isStreaming && <img
-                          src={src || ''}
+                        <img
+                          src={src}
                           width="700"
                           height="495.5"
                           className="rounded-4 border border-1"

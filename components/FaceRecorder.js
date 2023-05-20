@@ -1,7 +1,7 @@
 import { useRef, useState, useEffect } from 'react';
-import usePyramidWebCam from 'pyramid-webcam';
 import { PlayCircleOutlined, DownloadOutlined } from "@ant-design/icons";
 import styles from "../styles/RecordVideo.module.css";
+import usePyramidWebCam from 'pyramid-webcam';
 
 export default function FaceRecorder({ setValue }) {
 
@@ -20,21 +20,25 @@ export default function FaceRecorder({ setValue }) {
         recordedBlob,
     } = usePyramidWebCam(streamRef, "webm")
 
+    useEffect(() => { console.log(webCamStatus) }, [webCamStatus])
+    useEffect(() => { console.log(recordedBlob) }, [recordedBlob])
+
     useEffect(() => {
-        if (webCamStatus == "Recording") {
+        if (webCamStatus == "recording") {
             if (videoTimer > 0) {
                 setTimeout(() => setVideoTimer(videoTimer - 1), 1000)
             } else {
                 stopRecording()
+                setVideoTimer(10)
             }
         }
-    }, [webCamStatus, videoTimer])
+    }, [webCamStatus, videoTimer, stopRecording])
 
     useEffect(() => {
         if (recordedBlob) {
             setValue('face_video', recordedBlob)
         }
-    }, [recordedBlob])
+    }, [recordedBlob, setValue])
 
     return (
         <>
@@ -45,19 +49,19 @@ export default function FaceRecorder({ setValue }) {
                             ref={streamRef}
                             className=' border border-1 rounded mt-3 '
                             id="preview"
-                            width="400"
+                            width="366"
                             height="275.5"
                             autoPlay
                             muted
                         ></video>
 
                         {
-                            webCamStatus == "Recording" ?
+                            webCamStatus == "recording" ?
                                 <div className={`position-absolute ${styles.videoTimer}`}>
                                     <div className={`text-white fs-5 position-relative`}>
 
                                         <span className={`position-absolute translate-middle p-2 border-0 rounded-circle ${styles.circle}`}>
-                                            <span className="visually-hidden">New alerts</span>
+                                            {/* <span className="visually-hidden">New alerts</span> */}
                                         </span>
 
                                         <p className='d-inline-block text-white'>{videoTimer}</p>
@@ -66,7 +70,7 @@ export default function FaceRecorder({ setValue }) {
                         }
 
                         {
-                            webCamStatus == "Closed" || webCamStatus == "Stopped" ?
+                            webCamStatus == "closed" ?
                                 <button
                                     className={`btn border-0 ${styles.btn_open_cam}`}
                                     type="button"
@@ -79,7 +83,7 @@ export default function FaceRecorder({ setValue }) {
 
 
                         {
-                            webCamStatus == "Opened" ?
+                            webCamStatus == "opened" || webCamStatus == "stopped" ?
                                 <div className={styles.record}>
                                     <p>PRESS <span>REC</span> WHEN READY</p>
                                     <button

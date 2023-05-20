@@ -11,6 +11,7 @@ import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useEffect } from "react";
 import { register as signUp, ResetSuccess } from '../store/slices/authSlice'
+import RecorderComponent from "../components/Recorder";
 
 
 const SignUp = () => {
@@ -41,11 +42,13 @@ const SignUp = () => {
   // }, [inputs, errors])
 
   useEffect(() => {
-    is_success && reset() && dispatch(ResetSuccess()) // && router.push("/")
-  }, [is_success]);
+    if (is_success) {
+      reset()
+      dispatch(ResetSuccess())
+    }
+  }, [dispatch, is_success, reset]);
 
   const onSubmit = (data) => {
-    // console.log(data)
     dispatch(signUp(data));
   };
 
@@ -56,7 +59,10 @@ const SignUp = () => {
           <div className="row">
             <div className={`col-xl-6 col-lg-6 ${styles.d_none}`}>
 
-              <lottie-player src="https://lottie.host/7b4e4ddf-a8d1-4742-b0d2-ea8eb2fdb801/XpSpqOPdac.json" background="transparent" speed="1" style={{ width: "450px" , marginLeft: "auto", marginRight: "auto" }} loop autoplay></lottie-player>
+              <lottie-player src="https://lottie.host/7b4e4ddf-a8d1-4742-b0d2-ea8eb2fdb801/XpSpqOPdac.json" background="transparent" speed="1" style={{ width: "450px", marginLeft: "auto", marginRight: "auto" }} loop autoplay></lottie-player>
+
+              {/* <lottie-player src="https://assets3.lottiefiles.com/packages/lf20_ntdmh9RIUC.json" background="transparent" speed="1" style={{ width: "450px", marginLeft: "auto", marginRight: "auto" }} loop autoplay></lottie-player> */}
+              
               {/* <lottie-player src="https://lottie.host/b1752808-0ad2-49fb-b5a5-4ae952e1ffc8/FU8xh3edGg.json" background="transparent" speed="1" style={{ width: "400px", marginLeft: "60px" }} className="text-center" loop autoplay /> */}
 
             </div>
@@ -98,6 +104,8 @@ const SignUp = () => {
                       <ShebakLabel label="Recording Video" />
                       <div>
                         <FaceRecorder setValue={setValue} />
+                        {/* <RecorderComponent /> */}
+                        
                         {
                           errors.face_video?.message &&
                           <div className="text-danger mt-4">{errors.face_video.message}</div>

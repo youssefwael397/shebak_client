@@ -25,7 +25,6 @@ function MyApp({ Component, pageProps }) {
 
       <Script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js" />
 
-
       <Provider store={store}>
         {
           Component.getLayout ?

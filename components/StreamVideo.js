@@ -1,5 +1,5 @@
 import { useRef, useState, useEffect } from "react";
-import usePyramidWebCam from "pyramid-webcam";
+// import usePyramidWebCam from "pyramid-webcam";
 import { PlayCircleOutlined } from "@ant-design/icons";
 import styles from "../styles/RecordVideo.module.css";
 
