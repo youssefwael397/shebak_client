@@ -8,7 +8,7 @@ export default function FaceRecorder({ setValue }) {
     const streamRef = useRef();
     const downloadRef = useRef();
     // const [countDown, setCountDown] = useState(0);
-    const [videoTimer, setVideoTimer] = useState(10);
+    const [videoTimer, setVideoTimer] = useState(5);
 
     const {
         openCam,
@@ -29,7 +29,7 @@ export default function FaceRecorder({ setValue }) {
                 setTimeout(() => setVideoTimer(videoTimer - 1), 1000)
             } else {
                 stopRecording()
-                setVideoTimer(10)
+                setVideoTimer(5)
             }
         }
     }, [webCamStatus, videoTimer, stopRecording])

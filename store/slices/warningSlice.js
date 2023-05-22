@@ -68,11 +68,13 @@ export const warningSlice = createSlice({
         // get warnings
         [getWarnings.pending]: (state, { payload }) => {
             state.is_loading = true;
+            state.api_errors = null;
+            state.warnings = [];
         },
         [getWarnings.fulfilled]: (state, { payload }) => {
             state.is_loading = false;
             state.is_success = true;
-            state.api_errors = [];
+            state.api_errors = null;
             state.warnings = payload.warnings;
         },
         [getWarnings.rejected]: (state, { payload }) => {

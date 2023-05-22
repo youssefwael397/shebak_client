@@ -33,7 +33,8 @@ export const stopStream = createAsyncThunk(
 const initialState = {
     is_loading: false,
     is_success: false,
-    api_errors: null
+    api_errors: null,
+    is_streaming: false,
 }
 
 export const streamSlice = createSlice({
@@ -48,16 +49,19 @@ export const streamSlice = createSlice({
         // start stream
         [startStream.pending]: (state, { payload }) => {
             state.is_loading = true;
+            state.is_streaming = false;
         },
         [startStream.fulfilled]: (state, { payload }) => {
             state.is_loading = false;
             state.is_success = true;
             state.api_errors = [];
+            state.is_streaming = true;
             state.streams = payload.data;
         },
         [startStream.rejected]: (state, { payload }) => {
             state.is_loading = false;
             state.is_success = false;
+            state.is_streaming = false;
         },
         // stop stream
         [stopStream.pending]: (state, { payload }) => {
@@ -67,6 +71,7 @@ export const streamSlice = createSlice({
             state.is_loading = false;
             state.is_success = true;
             state.api_errors = [];
+            state.is_streaming = false;
             state.streams = payload.data;
         },
         [stopStream.rejected]: (state, { payload }) => {

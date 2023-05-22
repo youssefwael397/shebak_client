@@ -24,7 +24,6 @@ const WarningsPage = () => {
   const onSearch = (value) => console.log(value);
   const { getColumnSearchProps } = useSafqaTableSearch()
 
-  
   const columns = [
     {
       title: 'Status',

@@ -13,12 +13,13 @@ import { newDataSet } from "../lib/users";
 import useSafqaTableSearch from "../lib/ShebakTableSearch";
 import { useDispatch, useSelector } from "react-redux";
 import { getUsers } from "../store/slices/userSlice";
+import ImgPreview from "../components/ImgPreview";
 const { Search } = Input;
 
 const UsersPage = () => {
 
   const dispatch = useDispatch()
-  const { users, is_loading } = useSelector(state => state.user)
+  const { users, is_loading, imgPath } = useSelector(state => state.user)
   const onSearch = (value) => console.log(value);
   const { getColumnSearchProps } = useSafqaTableSearch()
 
@@ -40,13 +41,17 @@ const UsersPage = () => {
       dataIndex: 'photo',
       key: 'photo',
       render: (_, user) =>
-        <>
-          <img
+        <div div className="text-center mx-auto">
+          <ImgPreview
+            alt={user?.username}
+            src={`${imgPath}/${user?.photo}`}
+          />
+          {/* <img
             width="200"
             className="mx-auto text-center"
             src={`http://localhost:8000/${user.photo}`}
-          />
-        </>
+          /> */}
+        </div>
     },
     // {
     //   title: 'Warnings',
