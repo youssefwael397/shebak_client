@@ -5,8 +5,8 @@ body {
   margin: 0;
   font-family: "Tajawal";
   overflow-x: hidden;
-  background-image: url("/images/bg.jpeg");
-  background-color: #152d39 !important;
+  /* background-image: url("/images/bg.jpeg"); */
+  background-color: #003B46 !important;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -198,4 +198,7 @@ mark {
 
 .rh5v-DefaultPlayer_video {
   border-radius: 10px !important;
+}
+.ant-switch-checked{
+  background-color: #07575B !important;
 }

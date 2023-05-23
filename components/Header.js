@@ -19,7 +19,7 @@ const Header = () => {
               <ul className="list-unstyled mx-5">
                 <li className="nav-item">
                   <a className={`rounded-5 ${styles.logo}`} href="/">
-                    <img src="/images/Logo1.png" className="d-flex align-items-center" />
+                    <img src="/images/logo3.png" className="d-flex align-items-center" />
                   </a>
                 </li>
                 <li className="nav-item ms-3 mt-3">
