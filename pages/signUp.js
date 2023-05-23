@@ -11,6 +11,7 @@ import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useEffect } from "react";
 import { register as signUp, ResetSuccess } from '../store/slices/authSlice'
+import RecorderComponent from "../components/Recorder";
 
 
 const SignUp = () => {
@@ -41,11 +42,13 @@ const SignUp = () => {
   // }, [inputs, errors])
 
   useEffect(() => {
-    is_success && reset() && dispatch(ResetSuccess()) // && router.push("/")
-  }, [is_success]);
+    if (is_success) {
+      reset()
+      dispatch(ResetSuccess())
+    }
+  }, [dispatch, is_success, reset]);
 
   const onSubmit = (data) => {
-    // console.log(data)
     dispatch(signUp(data));
   };
 
@@ -98,6 +101,8 @@ const SignUp = () => {
                       <ShebakLabel label="Recording Video" />
                       <div>
                         <FaceRecorder setValue={setValue} />
+                        {/* <RecorderComponent /> */}
+                        
                         {
                           errors.face_video?.message &&
                           <div className="text-danger mt-4">{errors.face_video.message}</div>

@@ -36,11 +36,12 @@ const initialState = {
     is_success: false,
     api_errors: null,
     users: [],
-    user: {},
+    user_warning: null,
+    imgPath: "http://localhost:8000"
 }
 
 export const userSlice = createSlice({
-    name: 'auth',
+    name: 'user',
     initialState,
     reducers: {
         ResetSuccess(state) {
@@ -55,7 +56,7 @@ export const userSlice = createSlice({
         [getUsers.fulfilled]: (state, { payload }) => {
             state.is_loading = false;
             state.is_success = true;
-            state.api_errors = [];
+            state.api_errors = null;
             state.users = payload.users;
         },
         [getUsers.rejected]: (state, { payload }) => {
@@ -65,17 +66,20 @@ export const userSlice = createSlice({
         // get user
         [getUser.pending]: (state, { payload }) => {
             state.is_loading = true;
+            state.user_warning = null;
         },
         [getUser.fulfilled]: (state, { payload }) => {
             state.is_loading = false;
             state.is_success = true;
-            state.api_errors = [];
-            state.user = payload.data;
-            console.log(payload);
+            state.api_errors = null;
+            state.user_warning = payload;
         },
         [getUser.rejected]: (state, { payload }) => {
             state.is_loading = false;
             state.is_success = false;
+            state.user_warning = null;
+            console.log(first)
+            state.api_errors = payload.response.data.message
         }
     }
 })
