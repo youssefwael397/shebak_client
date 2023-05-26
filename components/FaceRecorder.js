@@ -2,6 +2,7 @@ import { useRef, useState, useEffect } from 'react';
 import { PlayCircleOutlined, DownloadOutlined } from "@ant-design/icons";
 import styles from "../styles/RecordVideo.module.css";
 import usePyramidWebCam from 'pyramid-webcam';
+import VideocamOffIcon from '@mui/icons-material/VideocamOff';
 
 export default function FaceRecorder({ setValue }) {
 
@@ -47,7 +48,7 @@ export default function FaceRecorder({ setValue }) {
                     <div className={`${styles.videoContainer} position-relative`}>
                         <video
                             ref={streamRef}
-                            className=' border border-1 rounded mt-3 '
+                            className=' border border-1 rounded-4 mt-3 '
                             id="preview"
                             width="366"
                             height="275.5"
@@ -72,11 +73,13 @@ export default function FaceRecorder({ setValue }) {
                         {
                             webCamStatus == "closed" ?
                                 <button
-                                    className={`btn border-0 ${styles.btn_open_cam}`}
+                                    className={` fs-6 p-2 border-0 px-4 rounded-4 mx-auto ${styles.btn_open_cam}`}
                                     type="button"
                                     onClick={openCam}
                                 >
-                                    <PlayCircleOutlined style={{ fontSize: '50px', color: '#e0e0e0' }} />
+                                    <VideocamOffIcon className='me-2'/>
+                                    Open
+                                    {/* <PlayCircleOutlined style={{ fontSize: '50px', color: '#e0e0e0' }} /> */}
                                 </button>
                                 : null
                         }
@@ -84,10 +87,10 @@ export default function FaceRecorder({ setValue }) {
 
                         {
                             webCamStatus == "opened" || webCamStatus == "stopped" ?
-                                <div className={styles.record}>
-                                    <p>PRESS <span>REC</span> WHEN READY</p>
+                                <div className={`${styles.record}`}>
+                                    <p className='text-center'>PRESS <span>REC</span> WHEN READY</p>
                                     <button
-                                        className={`ms-2 rounded-circle ${styles.btn_record}`}
+                                        className={`mx-auto rounded-circle d-flex justify-content-center ${styles.btn_record}`}
                                         type="button"
                                         onClick={startRecording}
                                     >

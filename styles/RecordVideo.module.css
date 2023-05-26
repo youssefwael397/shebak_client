@@ -1,45 +1,63 @@
-.videoContainer{
+.videoContainer {
     width: 400px;
     height: 275.5px;
 }
-.StreamvideoContainer{
+
+.videoContainer video {
+    background-color: #152d39;
+}
+
+.StreamvideoContainer {
     width: 600px;
     height: 455.5px;
 }
-.btn_open_cam{
+
+/* .btn_open_cam{
     position: absolute;
     left: 42%;
     top: 43%;
+} */
+.btn_open_cam {
+    position: absolute;
+    left: 36%;
+    top: 49%;
+    color: #d7d7d7 !important;
+    background: #c6c6c60f;
+    /* border: 1px solid#d7d7d7; */
 }
+
 .record {
     position: absolute;
     left: 32%;
     top: 39%;
 }
-.record p{
+
+.record p {
     color: white
 }
-.record p span{
-    color: rgba(227,73,28,0.8);
-}
-.btn_record{
-    border: 5px solid #939393;
-    background-color: rgba(227,73,28,0.8);
-    width: 64px;
-    height: 64px;
+
+.record p span {
+    color: rgba(227, 73, 28, 0.8);
 }
 
-.btn_record:hover{
+.btn_record {
+    border: 3px solid rgb(255, 255, 255);
+    background-color: rgba(227, 73, 28, 0.8);
+    width: 50px;
+    height: 50px;
+}
+
+.btn_record:hover {
     background-color: rgb(255 80 29 / 80%);
 }
 
-.videoTimer{
+.videoTimer {
     top: 9%;
     right: 5%;
 }
 
-.videoTimer .circle{
-    background-color: rgba(227,73,28,0.8);
+.videoTimer .circle {
+    background-color: rgba(227, 73, 28, 0.8);
     width: 15px;
     height: 15px;
     top: 10px;
@@ -47,11 +65,12 @@
 }
 
 @media (max-width: 767.98px) {
-    .videoContainer{
+    .videoContainer {
         width: 350px;
         height: 275.5px;
     }
-    .videoContainer video{
+
+    .videoContainer video {
         width: 350px;
         height: 275.5px;
     }

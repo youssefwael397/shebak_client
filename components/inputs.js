@@ -2,9 +2,9 @@ import React from "react";
 import { Button, Form, Input } from "antd";
 import styles from "../styles/Inputs.module.css";
 
-export const ShebakLabel  = ({ label, span }) => {
+export const ShebakLabel = ({ label, span }) => {
   return (
-    <label className={`form-label mt-3 fs-6 ${styles.label}`}>
+    <label className={`form-label fs-6 ${styles.label}`}>
       {label} <span className="ms-2">{span}</span>
     </label>
   );
@@ -40,6 +40,25 @@ export const ShebakInput = ({
         {...register(name)}
       />
       {error && <span className="text-danger fs-6">{error}</span>}
+    </>
+  );
+};
+
+
+export const ShebakInputIcon = ({
+  placeholder,
+  icon,
+  name,
+  error,
+  className,
+  required,
+  register,
+  ...inputProps
+}) => {
+
+  return (
+    <>
+      <Input size="large" placeholder={placeholder} prefix={icon}/>
     </>
   );
 };

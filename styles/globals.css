@@ -5,8 +5,9 @@ body {
   margin: 0;
   font-family: "Tajawal";
   overflow-x: hidden;
-  /* background-image: url("/images/bg.jpeg"); */
-  background-color: #003B46 !important;
+  background-image: url("/images/bg.jpeg");
+  /* background-color: #003B46 !important; */
+  background-color: #152d39 !important;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -42,9 +43,21 @@ body {
 }
 
 .ant-input-affix-wrapper {
+  background-color: #f7f7f7 !important;
+  color: #797979 !important;
   height: 38px !important;
-  border-radius: .375rem 0px 0px .375rem !important;
+  border-radius: 0.375rem !important;
   box-shadow: none !important;
+  border: 0 !important;
+} 
+
+.ant-input::placeholder {
+  color: #797979 !important;
+  opacity: 1 !important;
+}
+
+.ant-input-prefix {
+  margin-right: 9px !important;
 }
 
 .ant-input-search-button {
@@ -164,8 +177,8 @@ thead:hover {
 }
 
 .ant-input {
-  background-color: #1b3546 !important;
-  color: white !important;
+  background-color: #f7f7f7 !important;
+  color: #797979 !important;
 }
 
 .ant-btn-primary {
@@ -201,4 +214,10 @@ mark {
 }
 .ant-switch-checked{
   background-color: #07575B !important;
+}
+
+.ant-btn[disabled], .ant-btn[disabled]:hover, .ant-btn[disabled]:focus, .ant-btn[disabled]:active{
+  height: 40px !important;
+  background-color: #dbdbdb !important;
+  color: #848484 !important;
 }
