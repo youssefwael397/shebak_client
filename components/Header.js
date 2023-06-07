@@ -11,7 +11,7 @@ const Header = () => {
   return (
     <div className={`${styles.contNav} position-fixed`}>
       <div className="">
-        <nav
+        {/* <nav
           className={`${styles.navbar} navbar navbar-expand-lg navbar-light d-flex justify-content-center`}
         >
           <div className="">
@@ -19,7 +19,7 @@ const Header = () => {
               <ul className="list-unstyled mx-5">
                 <li className="nav-item">
                   <a className={`rounded-5 ${styles.logo}`} href="/">
-                    <img src="/images/logo3.png" className="d-flex align-items-center" />
+                    <img src="/images/Logo.png" className="d-flex align-items-center" />
                   </a>
                 </li>
                 <li className="nav-item ms-3 mt-3">
@@ -38,6 +38,41 @@ const Header = () => {
                   <Link href="/warnings" className={`nav-link d-flex align-items-center ${router.pathname == "/warnings" ? styles.active : " "}`}>
                     <WarningOutlined />
                     <span className="ms-3"> Warnings</span>
+                  </Link>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </nav> */}
+
+        <nav
+          className={`${styles.navbar} ms-2 navbar navbar-expand-lg navbar-light d-flex justify-content-center`}
+        >
+          <div className="">
+            <div className="nav-item d-flex justify-content-center ms-3">
+              <a className={`rounded-5 ${styles.logo}`} href="/">
+                <img src="/images/logo6.png" className="d-flex align-items-center" width="100px"/>
+              </a>
+            </div>
+            <div className="d-flex justify-content-center align-items-center">
+
+              <ul className="list-unstyled p-4 rounded-5">
+                <li className="nav-item">
+                  <Link href="/" className={`nav-link d-flex align-items-center ${router.pathname == "/" ? styles.active : " "}`}>
+                    <VideoCameraOutlined className={` ${styles.icon}`} />
+                    <span className={`${styles.link}`}>Streams</span>
+                  </Link>
+                </li>
+                <li className="nav-item mt-5">
+                  <Link href="/users" className={`nav-link d-flex align-items-center ${router.pathname == "/users" ? styles.active : " "}`}>
+                    <TeamOutlined />
+                    <span className={`${styles.link}`}>Users</span>
+                  </Link>
+                </li>
+                <li className="nav-item mt-5">
+                  <Link href="/warnings" className={`nav-link d-flex align-items-center ${router.pathname == "/warnings" ? styles.active : " "}`}>
+                    <WarningOutlined />
+                    <span className={`${styles.link}`}> Warnings</span>
                   </Link>
                 </li>
               </ul>

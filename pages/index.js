@@ -15,6 +15,7 @@ const Stream = () => {
   const [socket, setSocket] = useState(true);
   const dispatch = useDispatch()
   const [streamUrl, setStreamUrl] = useState('');
+  const [open, setOpen] = useState(true);
 
 
   const handleStartStream = () => {
@@ -46,38 +47,60 @@ const Stream = () => {
   return (
     <>
       <div className={`${styles.stream} px-5`}>
-        <lottie-player src="https://lottie.host/0ce13572-2e2a-4dea-b31b-455a2639e49c/Wbwp8c3hni.json" background="transparent" speed="1" style={{ width: "1112px", position: "absolute", top: 0, left: 278, right: 0 }} loop autoplay></lottie-player>
+        {/* <lottie-player src="https://lottie.host/0ce13572-2e2a-4dea-b31b-455a2639e49c/Wbwp8c3hni.json" background="transparent" speed="1" style={{ width: "1112px", position: "absolute", top: 0, left: 278, right: 0 }} loop autoplay></lottie-player> */}
         <div className="mx-auto text-center mt-4">
           {/* <HeaderTop title="Video Stream" /> */}
-          <div className="d-flex text-white fs-6 justify-content-center">
-            <p className="me-3">Stop</p>
-            <Switch defaultChecked onChange={onChange} />
-            <p className="ms-3">Start</p>
-          </div>
         </div>
         <div className={` pt-3 pb-3`}>
           <div className="container">
             <div className={` mb-2 ${styles.cont_video} d-flex align-items-center justify-content-center`}>
               <div className="d-flex align-items-center">
-                <div className="text-center mx-auto w-100">
-                  <div className="mb-5">
-                    <div className={`${CamStyles.videoContainer} ${CamStyles.StreamvideoContainer} position-relative`}>
+                <div className="text-center mx-auto w-100 ms-5">
+                  <div className="mb-5 ms-5">
+                    <div className={`ms-5 mt-3 ${CamStyles.videoContainer} ${CamStyles.StreamvideoContainer} position-relative`}>
 
                       {/* <div>Socket Connected</div> */}
-                      <img
-                        src={is_loading ? '/R25N.gif' : `http://localhost:8000/stream`}
-                        width="700"
-                        height="495.5"
-                        className="rounded-4 border border-dark"
-                      />
-                      <div className="text-center mt-3">
 
-                        {/* <button className="btn btn-primary mx-2" onClick={handleStartStream}>Start</button> */}
-                        {/* <button className="btn btn-secondary mx-2" onClick={handleStopStream}>Stop</button> */}
+                      {
+                        is_loading ?
+                          <div className={`${styles.wstream} d-flex justify-content-center align-items-center rounded-4 border border-dark `}>
+                            <img
+                              src='../images/loading.gif'
+                              width="50"
+                            />
+                          </div>
+                          :
+                          <img
+                            src='http://localhost:8000/stream'
+                            width="650"
+                            height="455.5"
+                            className="rounded-4 border border-dark"
+                          />
+                      }
 
-                      </div>
+                      {/* <div className="text-center mt-3"> */}
+
+                      {/* <button className="btn btn-primary mx-2" onClick={handleStartStream}>Start</button> */}
+                      {/* <button className="btn btn-secondary mx-2" onClick={handleStopStream}>Stop</button> */}
+
+                      {/* </div> */}
                     </div>
+                    <img
+                      src="../images/robotStream.png"
+                      width="500"
+                      // height="130"
+                      className="position-absolute bottom-0 end-0"
+                    />
                   </div>
+                </div>
+                <div className="text-white fs-6 ms-5 position-relative">
+                  <img className={styles.arrowsAnimatetop} src="../images/arrowsAnimate.gif" width="80px" />
+                  <div className="ms-5">
+                    <p className={`me-3 ms-2 ${!open ? "" : "text-white-50"}`}>Stop</p>
+                    <Switch onChange={setOpen} className={styles.switch} />
+                    <p className={`ms-2 mt-3 ${open ? "" : "text-white-50"}`}>Play</p>
+                  </div>
+                  <img className={styles.arrowsAnimatebottom} src="../images/arrowsAnimate.gif" width="80px" />
                 </div>
               </div>
             </div>

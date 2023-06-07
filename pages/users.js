@@ -8,7 +8,7 @@ import HeaderTop from "../components/HeaderTop";
 import Link from "next/link";
 import { AudioOutlined, EyeOutlined } from '@ant-design/icons';
 import { Input, Table } from 'antd';
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { newDataSet } from "../lib/users";
 import useSafqaTableSearch from "../lib/ShebakTableSearch";
 import { useDispatch, useSelector } from "react-redux";
@@ -44,7 +44,8 @@ const UsersPage = () => {
         <div div className="text-center mx-auto">
           <ImgPreview
             alt={user?.username}
-            src={`${imgPath}/${user?.photo}`}
+            // src={`${imgPath}/${user?.photo}`}
+            src={"../images/person.jpg"}
           />
           {/* <img
             width="200"
@@ -69,6 +70,24 @@ const UsersPage = () => {
             <EyeOutlined style={{ fontSize: '16px', color: '#66B4D2' }} />
           </Link>
         </div>
+    },
+  ];
+
+  const dataSource = [
+    {
+      key: '1',
+      username: 'Mike',
+      email: 'Mike@gmail.com',
+    },
+    {
+      key: '2',
+      username: 'Johnnnn',
+      email: 'Johnnnn@gmail.com',
+    },
+    {
+      key: '3',
+      username: 'John',
+      email: 'John@gmail.com',
     },
   ];
 
@@ -98,16 +117,15 @@ const UsersPage = () => {
   return (
     <>
       <div className={`${styles.MainDiv} px-4 me-3`}>
-
-        <div className="warnings mt-5">
+        {/* <div className="warnings mt-5">
           <HeaderTop title="Users" />
-        </div>
+        </div> */}
         <br />
 
-        <div>
+        <div className={styles.table}>
           <Table
             columns={columns}
-            dataSource={users}
+            dataSource={dataSource}
             loading={is_loading}
           />
         </div>

@@ -6,7 +6,7 @@ import "datatables.net-dt/css/jquery.dataTables.min.css";
 import $ from "jquery";
 import HeaderTop from "../components/HeaderTop";
 import Link from "next/link";
-import { AudioOutlined, EyeOutlined, DownloadOutlined} from '@ant-design/icons';
+import { AudioOutlined, EyeOutlined, DownloadOutlined } from '@ant-design/icons';
 import { Input, Table } from 'antd';
 import { useEffect } from "react";
 import { newDataSet } from "../lib/warnings";
@@ -43,10 +43,10 @@ const WarningsPage = () => {
       key: 'video_name',
       render: (_, warning) =>
         <>
-          <Link download={true} href={`http://localhost:8000/api/warnings/video/${warning.video_name}`} >
+          <Link className="d-flex justify-content-center align-items-center" download={true} href={`http://localhost:8000/api/warnings/video/${warning.video_name}`} >
             <DownloadOutlined style={{ fontSize: '16px', color: '#66B4D2' }} />
           </Link>
-        </> 
+        </>
     },
     {
       title: 'Show',
@@ -58,6 +58,25 @@ const WarningsPage = () => {
             <EyeOutlined style={{ fontSize: '16px', color: '#66B4D2' }} />
           </Link>
         </div>
+    },
+  ];
+
+  const dataSource = [
+    {
+      status: 'Iwett',
+      date: '23/7/2001',
+    },
+    {
+      status: '2hfdh',
+      date: '23/7/2002',
+    },
+    {
+      status: '3dfhdh',
+      date: '23/7/2003',
+    },
+    {
+      status: 'fgdfh',
+      date: '23/7/2004',
     },
   ];
 
@@ -85,15 +104,15 @@ const WarningsPage = () => {
 
   return (
     <>
-      <div className={`${styles.MainDiv} px-4 me-3`}>
+      <div className={`${styles.MainDiv} ${styles.WarningsPage} warningspage px-4 me-3`}>
 
-        <div className="warnings mt-5">
+        {/* <div className="warnings mt-5">
           <HeaderTop title="Warnings History" />
-        </div>
+        </div> */}
         <br />
 
-        <div>
-          <Table columns={columns} dataSource={warnings} loading={is_loading} />
+        <div className={styles.table}>
+          <Table columns={columns} dataSource={dataSource} loading={is_loading} />
         </div>
       </div>
     </>

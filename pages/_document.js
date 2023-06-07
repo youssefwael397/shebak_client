@@ -7,15 +7,15 @@ export default function Document() {
         <Html>
             <Head>
                 <link
-                    href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css"
+                    href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css"
                     rel="stylesheet"
-                    integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor"
-                    crossOrigin="anonymous"
-                />
+                    integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65"
+                    crossOrigin="anonymous" />
+
                 <link
-                  href={`https://fonts.googleapis.com/css?family=Tajawal&display=optional`}
-                  rel="stylesheet"
-              />
+                    href={`https://fonts.googleapis.com/css?family=Tajawal&display=optional`}
+                    rel="stylesheet"
+                />
             </Head>
 
             <body>

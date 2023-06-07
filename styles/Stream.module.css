@@ -1,8 +1,43 @@
-.stream{
-    /* background-color: #174c64; */
+.stream {
     font-family: "Tajawal";
+    background-image: url("/images/bgStream4.png");
+    /* background-color: #152d39 !important; */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    /* z-index: -2; */
 }
 
-.cont_video{
-    margin-left: -112px;
+.cont_video {
+    /* margin-left: -112px; */
+    /* z-index: -2; */
+}
+
+.switch {
+    transform: rotate(90deg);
+}
+
+.wstream {
+    width: 650px;
+    height: 455.5px;
+    background-color: black;
+}
+
+.arrowsAnimatebottom {
+    position: absolute;
+    top: 100px;
+    left: 30px;
+    /* transform: rotate(180deg); */
+}
+
+.arrowsAnimatetop {
+    position: absolute;
+    top: -70px;
+    left: 30px;
+    transform: rotate(180deg);
 }

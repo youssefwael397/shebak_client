@@ -19,6 +19,45 @@
 
 .MainDiv {
   font-family: "Tajawal";
+  background-image: url("/images/bgUser.png");
+  /* background-color: #152d39 !important; */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  /* z-index: -2; */
+}
+
+.MainDiv.WarningsPage{
+  font-family: "Tajawal";
+  background-image: url("/images/bgWarning.jpg");
+  -webkit-transform: scaleX(-1);
+  transform: scaleX(-1);
+  /* background-color: #152d39 !important; */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  /* z-index: -2; */
+}
+
+.MainDiv .table{
+  width: 77%;
+  float: right;
+  margin-top: 90px;
+}
+
+.WarningsPage .table{
+  transform: rotateY(180deg);
+  float: left;
 }
 
 .show {
@@ -75,4 +114,15 @@
   /* width: 330px; */
   background-color: #11283475;
   border-radius: 10px;
+}
+
+.eye{
+  display: none !important;
+}
+
+.img_button:hover .eye{
+  display: block !important;
+  background: rgba(0, 0, 0, 0.5) !important;
+  padding: 10px;
+  border-radius: 50%;
 }
