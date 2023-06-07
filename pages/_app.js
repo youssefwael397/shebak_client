@@ -17,6 +17,7 @@ function MyApp({ Component, pageProps }) {
         <link rel="icon" href="images/logo5.png" />
       </Head>
 
+
       <Script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js" />
 
       <Provider store={store}>

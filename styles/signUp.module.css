@@ -24,8 +24,10 @@
   /* border-radius: 12% 100% 21% 14% / 28% 0% 0% 55%; */
   /* background-color: white; */
   /* margin-left: 50px; */
-  margin-top: 87px;
-margin-bottom: 197px;
+  /* margin-top: 99px;
+margin-bottom: 197px; */
+
+height: 100vh;
 }
 
 .right_section h3 {
@@ -43,10 +45,10 @@ margin-bottom: 197px;
   /* letter-spacing: 1.5px; */
   color: #f3f3f3;
   /* margin-right: 119px; */
-  height: 40px;
+  height: 40px !important;
 }
 .dots{
-  left: 633px;
+  left: -81px;
 }
 
 .dots img{
@@ -56,7 +58,7 @@ margin-bottom: 197px;
 .arrowleft{
 position: absolute;
 top: 0px;
-left: 50%;
+left: -12px;
 }
 
 .arrowright{

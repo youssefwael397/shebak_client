@@ -58,7 +58,7 @@ export default function FaceRecorder({ setValue }) {
 
                         {
                             webCamStatus == "recording" ?
-                                <div className={`position-absolute ${styles.videoTimer}`}>
+                                <div className={` position-absolute translate-middle ${styles.videoTimer}`}>
                                     <div className={`text-white fs-5 position-relative`}>
 
                                         <span className={`position-absolute translate-middle p-2 border-0 rounded-circle ${styles.circle}`}>
@@ -73,7 +73,7 @@ export default function FaceRecorder({ setValue }) {
                         {
                             webCamStatus == "closed" ?
                                 <button
-                                    className={` fs-6 p-2 border-0 px-4 rounded-4 mx-auto ${styles.btn_open_cam}`}
+                                    className={` fs-6 p-2 border-0 px-4 rounded-4 position-absolute start-50 translate-middle ${styles.btn_open_cam}`}
                                     type="button"
                                     onClick={openCam}
                                 >
@@ -87,7 +87,7 @@ export default function FaceRecorder({ setValue }) {
 
                         {
                             webCamStatus == "opened" || webCamStatus == "stopped" ?
-                                <div className={`${styles.record}`}>
+                                <div className={`${styles.record} position-absolute start-50 translate-middle`}>
                                     <p className='text-center'>PRESS <span>REC</span> WHEN READY</p>
                                     <button
                                         className={`mx-auto rounded-circle d-flex justify-content-center ${styles.btn_record}`}

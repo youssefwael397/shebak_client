@@ -66,11 +66,10 @@ const SignUp = () => {
             <div className={`col-xl-6 col-lg-6 ${styles.d_none}`}>
 
               <lottie-player src="https://lottie.host/7b4e4ddf-a8d1-4742-b0d2-ea8eb2fdb801/XpSpqOPdac.json" background="transparent" speed="1" style={{ width: "450px", marginLeft: "auto", marginRight: "auto" }} loop autoplay></lottie-player>
-              {/* <lottie-player src="https://lottie.host/b1752808-0ad2-49fb-b5a5-4ae952e1ffc8/FU8xh3edGg.json" background="transparent" speed="1" style={{ width: "400px", marginLeft: "60px" }} className="text-center" loop autoplay /> */}
 
             </div>
             <div className={`col-xl-6 col-lg-6 col-md-12 col-sm-12 ${styles.cont_right_section}`}>
-              <div className={`${styles.right_section}`}>
+              <div className={`${styles.right_section} position-relative`}>
 
                 <div className="d-flex justify-content-center">
                   <div className="">
@@ -78,7 +77,7 @@ const SignUp = () => {
                       width="200px"
                       className={` ${styles.arrowleft}`}
                     />
-                    <form className="w-100" onSubmit={handleSubmit(onSubmit)}>
+                    <form className={`w-75 position-absolute top-50 start-50 translate-middle`} onSubmit={handleSubmit(onSubmit)}>
                       {
                         step == 1 ? <>
                           <img
@@ -86,7 +85,8 @@ const SignUp = () => {
                             width="190px"
                             className="mx-auto d-flex justify-content-center"
                           />
-                          <h3 className="fw-bold text-center text-dark mt-4">Welcome to Shebak!</h3>
+                          {/* <h3 className="fw-bold text-center text-dark mt-4 mb-3">Welcome to Shebak!</h3> */}
+                          <h3 className="fw-bold text-center text-dark mt-4 mb-3">Smart Security System</h3>
                           <div className="row d-flex justify-content-center">
                             <div className="col-xxl-9 col-xl-9 col-lg-9 col-md-12 col-sm-12 mt-4">
                               <ShebakInputIcon
@@ -127,7 +127,7 @@ const SignUp = () => {
 
                             {
                               errors.face_video?.message &&
-                              <div className="text-danger mt-4 text-center">{errors.face_video.message}</div>
+                              <div className="text-danger mt-4">{errors.face_video.message}</div>
                             }
                           </div>
 
@@ -160,15 +160,17 @@ const SignUp = () => {
 
 
                     </form>
+                    <img src="../images/arrow_right.png"
+                      width="200px"
+                      className={` ${styles.arrowright}`}
+                    />
                   </div>
                 </div>
 
-                <img src="../images/arrow_right.png"
-                  width="200px"
-                  className={` ${styles.arrowright}`}
-                />
+
 
                 <div className={`position-absolute bottom-0 ${styles.dots}`}>
+                  <img src="../images/dotsWhite.png" width="40px" />
                   <img src="../images/dotsWhite.png" width="40px" />
                   <img src="../images/dotsWhite.png" width="40px" />
                   <img src="../images/dotsGray.png" width="40px" />

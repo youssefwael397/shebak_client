@@ -1,5 +1,5 @@
 .videoContainer {
-    width: 400px;
+    /* width: 400px; */
     height: 275.5px;
 }
 
@@ -18,9 +18,9 @@
     top: 43%;
 } */
 .btn_open_cam {
-    position: absolute;
-    left: 36%;
-    top: 49%;
+    /* position: absolute;
+    left: 40%;*/
+    top: 56%;
     color: #d7d7d7 !important;
     background: #c6c6c60f;
     /* border: 1px solid#d7d7d7; */
@@ -28,8 +28,8 @@
 
 .record {
     position: absolute;
-    left: 32%;
-    top: 39%;
+    /* left: 36%;*/
+    top: 53%;
 }
 
 .record p {
@@ -52,16 +52,16 @@
 }
 
 .videoTimer {
-    top: 9%;
-    right: 5%;
+    top: 18%;
+    right: 20%;
 }
 
 .videoTimer .circle {
     background-color: rgba(227, 73, 28, 0.8);
     width: 15px;
     height: 15px;
-    top: 10px;
-    right: 18px;
+    top: 12px;
+    right: 10px;
 }
 
 @media (max-width: 767.98px) {
