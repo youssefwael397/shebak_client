@@ -7,12 +7,12 @@ const ImgPreviewUser = ({ src, alt }) => {
     const [visible, setVisible] = useState(false);
     return (
         <>
-            <Button type="primary" className={`position-relative rounded-4 ms-1 ${styles.img_button_user}`} onClick={() => setVisible(true)}>
+            <Button type="primary" className={`position-relative rounded-4 ms-4 ${styles.img_button_user}`} onClick={() => setVisible(true)}>
                 <Image
                     alt={alt}
-                    width={104}
-                    height={104}
-                    className='rounded-4 border-0 p-0'
+                    width={106}
+                    height={106}
+                    className='rounded-4 border-0 p-0 mb-4 ms-1'
                     src={src}
                     preview={{
                         visible,

@@ -102,6 +102,7 @@
 .warning hr {
   border: 1px solid #66b4d217;
   opacity: 1;
+  width: 30%;
 }
 
 .user_video {
@@ -140,10 +141,29 @@
   border-radius: 50%;
 }
 
-.warningsUser{
+/* .warningsUser{
   background-color: #00000057;
-}
+} */
 .warningsUser a{
-  background-color: #2f6782 !important;
+  background-color: #00000057 !important;
   color: white !important;
+}
+
+.warningsUser .title{
+  color: #438db1;
+}
+
+.warningsUser {
+  font-family: "Tajawal";
+  background-image: url("/images/bg.jpeg");
+  /* background-color: #152d39 !important; */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  /* z-index: -2; */
 }

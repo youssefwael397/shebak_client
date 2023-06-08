@@ -20,35 +20,51 @@ const UserInfo = ({ user_warning }) => {
   return (
     <div className='bg-gray-800 h-screen p-16 text-gray-100'>
       <div className="container">
-        <div className={`mt-5 mb-4 px-4 me-3 ${styles.warning}`}>
+        <div className={`mt-5 mb-4 px-4 me-3 w-75 ${styles.warning}`}>
           <div className={`rounded-2`}>
-            <div className="d-flex">
-              <ImgPreviewUser
-                alt={user?.username}
-                // src={`${imgPath}/${user?.photo}`}
-                src="../images/person.jpg"
-              />
-              <div className="mt-5 ms-3 text-white fs-6">
-                <div className="d-flex align-items-center mt-1"><UserOutlined /> <span className=" ms-3">{user?.username} Nouran Ali</span></div>
-                <div className="d-flex align-items-center mt-3"><MailOutlined /><span className="ms-3">{user?.email} noran@gmail.com</span></div>
-              </div>
-            </div>
 
-            <div className={`mt-5 fs-6 ms-3 w-75 rounded-4 p-4 ${styles.warningsUser}`}>
-              <p className="text-white ms-3">Warnings{user?.warnings?.length}</p>
-              {warnings?.length > 0 ? <ul className="ps-0 row text-center">
+            <div className={`mt-5 fs-6 ${styles.warningsUser}`}>
+              <div className="d-flex justify-content-center">
+                <div>
+                  <ImgPreviewUser
+                    alt={user?.username}
+                    // src={`${imgPath}/${user?.photo}`}
+                    src="../images/person.jpg"
+                  />
+                  <div className="mt-5 text-white fs-6 px-3">
+                    <div className="d-flex justify-content-center align-items-center mt-1"><UserOutlined /> <span className=" ms-3">{user?.username} Nouran Ali</span></div>
+                    <div className="d-flex justify-content-center align-items-center mt-3"><MailOutlined /><span className="ms-3">{user?.email} noran@gmail.com</span></div>
+                  </div>
+                </div>
+              </div>
+
+              <p className={`mt-3 text-center ${styles.title}`}>Warnings ( 3{user?.warnings?.length} )</p>
+              <hr className="mx-auto" />
+              {warnings?.length > 0 ? <ul className="ps-0 text-center">
                 {
                   warnings.map((w, index) =>
-                    <li key={index} className="list-group-item col-4">
-                      <Link className="btn mb-3 p-3 px-5" href={`/warnings/${w.id}`} >{w.date}
+                    <li key={index} className="list-group-item">
+                      <Link className="btn mb-3 p-3 px-5" href={`/warnings/${w.id}`} >
+                        Status : violence
                         <br />
-                        status : violence
+                        Date : {w.date}
                       </Link>
                     </li>
                   )}</ul>
                 :
                 // eslint-disable-next-line react/no-unescaped-entities
-                <p className={styles.data}>This user doesn't make any violence actions.</p>
+                <>
+                  <div className="d-flex justify-content-center mt-3">
+                    <lottie-player
+                      src="https://lottie.host/fb91b174-64c3-4bab-ab5c-a687204fccd9/eQEMgmAHtG.json"
+                      background="transparent"
+                      speed="1"
+                      style={{ width: "130px", height: "130px" }}
+                      loop
+                      autoplay></lottie-player>
+                  </div>
+                  <p className={`text-center ${styles.data}`}>This user doesn't make any violence actions.</p>
+                </>
               }
             </div>
 
@@ -71,20 +87,20 @@ export default function Users() {
     username: 'Noran + Youssef = ♥',
     email: 'myGirl@gmail.com',
     photo: 'path/to/photo',
-    warnings: [
-      {
-        id: 1,
-        date: '05-9-2025 15:30',
-      },
-      {
-        id: 2,
-        date: '05-9-2025 15:30',
-      },
-      {
-        id: 3,
-        date: '05-9-2025 15:30',
-      },
-    ],
+    // warnings: [
+    //   {
+    //     id: 1,
+    //     date: '05-9-2025 15:30',
+    //   },
+    //   {
+    //     id: 2,
+    //     date: '05-9-2025 15:30',
+    //   },
+    //   {
+    //     id: 3,
+    //     date: '05-9-2025 15:30',
+    //   },
+    // ],
   };
 
   // useEffect(() => { console.log(user_warning) }, [user_warning])
