@@ -43,8 +43,8 @@ const UsersPage = () => {
         <div div className="text-center mx-auto">
           <ImgPreview
             alt={user?.username}
-            // src={`${imgPath}/${user?.photo}`}
-            src={'../images/person.jpg'}
+            src={`${imgPath}/${user?.photo}`}
+            // src={'../images/person.jpg'}
           />
           {/* <img
             width="200"
@@ -112,8 +112,6 @@ const UsersPage = () => {
     },
   ];
 
-
-
   useEffect(() => {
     $(document).ready(function () {
       $('#example').DataTable();
@@ -146,8 +144,12 @@ const UsersPage = () => {
         <div className={styles.table}>
           <Table
             columns={columns}
-            dataSource={dataSource}
+            dataSource={users}
             loading={is_loading}
+            pagination={{
+              position: [`bottomRight`],
+              pageSize: '5',
+            }}
           />
         </div>
       </div>

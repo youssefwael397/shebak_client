@@ -50,27 +50,47 @@ const Header = () => {
         >
           <div className="">
             <div className="nav-item d-flex justify-content-center ms-3">
-              <a className={`rounded-5 ${styles.logo}`} href="/">
-                <img src="/images/logo6.png" className="d-flex align-items-center" width="100px" />
-              </a>
+              <Link className={`rounded-5 ${styles.logo}`} href="/">
+                <img
+                  src="/images/logo6.png"
+                  className="d-flex align-items-center"
+                  width="100px"
+                />
+              </Link>
             </div>
             <div className="d-flex justify-content-center align-items-center">
-
               <ul className="list-unstyled p-4 rounded-5">
                 <li className="nav-item">
-                  <Link href="/" className={`nav-link d-flex align-items-center ${router.pathname == "/" ? styles.active : " "}`}>
+                  <Link
+                    href="/"
+                    className={`nav-link d-flex align-items-center ${
+                      router.pathname == '/' ? styles.active : ' '
+                    }`}
+                  >
                     <VideoCameraOutlined className={` ${styles.icon}`} />
                     <span className={`${styles.link}`}>Streams</span>
                   </Link>
                 </li>
                 <li className="nav-item mt-5">
-                  <Link href="/users" className={`nav-link d-flex align-items-center ${router.pathname == "/users" ? styles.active : " "}`}>
+                  <Link
+                    href="/users"
+                    className={`nav-link d-flex align-items-center ${
+                      router.pathname.includes('/users') ? styles.active : ' '
+                    }`}
+                  >
                     <TeamOutlined />
                     <span className={`${styles.link}`}>Users</span>
                   </Link>
                 </li>
                 <li className="nav-item mt-5">
-                  <Link href="/warnings" className={`nav-link d-flex align-items-center ${router.pathname == "/warnings" ? styles.active : " "}`}>
+                  <Link
+                    href="/warnings"
+                    className={`nav-link d-flex align-items-center ${
+                      router.pathname.includes('/warnings')
+                        ? styles.active
+                        : ' '
+                    }`}
+                  >
                     <WarningOutlined />
                     <span className={`${styles.link}`}> Warnings</span>
                   </Link>
