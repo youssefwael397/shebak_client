@@ -1,37 +1,47 @@
-import styles from "../styles/Stream.module.css";
-import StreamVideo from "../components/StreamVideo";
+import styles from '../styles/Stream.module.css';
+import StreamVideo from '../components/StreamVideo';
 import io from 'socket.io-client';
-import { useEffect, useRef, useState } from "react";
-import { PlayCircleOutlined } from "@ant-design/icons";
-import CamStyles from "../styles/RecordVideo.module.css";
-import captureVideoFrame from "capture-video-frame";
-import HeaderTop from "../components/HeaderTop";
-import { useDispatch, useSelector } from "react-redux";
-import { startStream, stopStream } from "../store/slices/streamSlice";
+import { useEffect, useRef, useState } from 'react';
+import { PlayCircleOutlined } from '@ant-design/icons';
+import CamStyles from '../styles/RecordVideo.module.css';
+import captureVideoFrame from 'capture-video-frame';
+import HeaderTop from '../components/HeaderTop';
+import { useDispatch, useSelector } from 'react-redux';
+import { startStream, stopStream } from '../store/slices/streamSlice';
 import { Switch } from 'antd';
 
 const Stream = () => {
-  const { is_loading, is_streaming } = useSelector(state => state.stream)
+  const { is_loading, is_streaming } = useSelector((state) => state.stream);
   const [socket, setSocket] = useState(true);
-  const dispatch = useDispatch()
+  const dispatch = useDispatch();
   const [streamUrl, setStreamUrl] = useState('');
   const [open, setOpen] = useState(true);
 
-
   const handleStartStream = () => {
-    dispatch(startStream())
-  }
-
+    dispatch(startStream());
+    setOpen(true);
+  };
 
   const handleStopStream = () => {
-    dispatch(stopStream())
-  }
+    dispatch(stopStream());
+    setOpen(false);
+  };
+
+  const toggleStream = () => {
+    if (open == 1) {
+      handleStopStream();
+    } else {
+      handleStartStream();
+    }
+  };
 
   const onChange = (checked) => {
     console.log(`switch to ${checked}`);
   };
 
-  useEffect(() => { console.log(is_loading) }, [is_loading])
+  useEffect(() => {
+    console.log(is_loading);
+  }, [is_loading]);
 
   useEffect(() => {
     // Start the stream when the component mounts
@@ -43,7 +53,6 @@ const Stream = () => {
     };
   }, []);
 
-
   return (
     <>
       <div className={`${styles.stream} px-5`}>
@@ -53,30 +62,31 @@ const Stream = () => {
         </div>
         <div className={` pt-3 pb-3`}>
           <div className="container">
-            <div className={` mb-2 ${styles.cont_video} d-flex align-items-center justify-content-center`}>
+            <div
+              className={` mb-2 ${styles.cont_video} d-flex align-items-center justify-content-center`}
+            >
               <div className="d-flex align-items-center">
                 <div className="text-center mx-auto w-100 ms-5">
                   <div className="mb-5 ms-5">
-                    <div className={`ms-5 mt-3 ${CamStyles.videoContainer} ${CamStyles.StreamvideoContainer} position-relative`}>
-
+                    <div
+                      className={`ms-5 mt-3 ${CamStyles.videoContainer} ${CamStyles.StreamvideoContainer} position-relative`}
+                    >
                       {/* <div>Socket Connected</div> */}
 
-                      {
-                        is_loading ?
-                          <div className={`${styles.wstream} d-flex justify-content-center align-items-center rounded-4 border border-dark `}>
-                            <img
-                              src='../images/loading.gif'
-                              width="50"
-                            />
-                          </div>
-                          :
-                          <img
-                            src='http://localhost:8000/stream'
-                            width="650"
-                            height="455.5"
-                            className="rounded-4 border border-dark"
-                          />
-                      }
+                      {is_loading || !open ? (
+                        <div
+                          className={`${styles.wstream} d-flex justify-content-center align-items-center rounded-4 border border-dark `}
+                        >
+                          <img src="../images/loading.gif" width="50" />
+                        </div>
+                      ) : (
+                        <img
+                          src="http://localhost:8000/stream"
+                          width="650"
+                          height="455.5"
+                          className="rounded-4 border border-dark"
+                        />
+                      )}
 
                       {/* <div className="text-center mt-3"> */}
 
@@ -94,13 +104,25 @@ const Stream = () => {
                   </div>
                 </div>
                 <div className="text-white fs-6 ms-5 position-relative">
-                  <img className={styles.arrowsAnimatetop} src="../images/arrowsAnimate.gif" width="80px" />
+                  <img
+                    className={styles.arrowsAnimatetop}
+                    src="../images/arrowsAnimate.gif"
+                    width="80px"
+                  />
                   <div className="ms-5">
-                    <p className={`me-3 ms-2 ${!open ? "" : "text-white-50"}`}>Stop</p>
-                    <Switch onChange={setOpen} className={styles.switch} />
-                    <p className={`ms-2 mt-3 ${open ? "" : "text-white-50"}`}>Play</p>
+                    <p className={`me-3 ms-2 ${!open ? '' : 'text-white-50'}`}>
+                      Stop
+                    </p>
+                    <Switch onChange={toggleStream} className={styles.switch} />
+                    <p className={`ms-2 mt-3 ${open ? '' : 'text-white-50'}`}>
+                      Play
+                    </p>
                   </div>
-                  <img className={styles.arrowsAnimatebottom} src="../images/arrowsAnimate.gif" width="80px" />
+                  <img
+                    className={styles.arrowsAnimatebottom}
+                    src="../images/arrowsAnimate.gif"
+                    width="80px"
+                  />
                 </div>
               </div>
             </div>
