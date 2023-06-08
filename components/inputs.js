@@ -1,6 +1,7 @@
-import React from "react";
-import { Button, Form, Input } from "antd";
-import styles from "../styles/Inputs.module.css";
+import React from 'react';
+import { Button, Form, Input } from 'antd';
+import styles from '../styles/Inputs.module.css';
+import { Controller } from 'react-hook-form';
 
 export const ShebakLabel = ({ label, span }) => {
   return (
@@ -19,12 +20,13 @@ export const ShebakInput = ({
   register,
   ...inputProps
 }) => {
-
   return (
     <>
       {label && (
         <label
-          className={`form-label mt-3 me-3 d-inline-block fs-6 ${styles.label} ${error && "text-danger"}`}
+          className={`form-label mt-3 me-3 d-inline-block fs-6 ${
+            styles.label
+          } ${error && 'text-danger'}`}
           htmlFor={label}
         >
           {label}
@@ -34,8 +36,9 @@ export const ShebakInput = ({
 
       <input
         id={label}
-        className={` form-control d-inline-block shadow-none ${styles.input} ${className && className
-          } ${error ? "border border-1 border-danger text-danger" : "border-1"}`}
+        className={` form-control d-inline-block shadow-none ${styles.input} ${
+          className && className
+        } ${error ? 'border border-1 border-danger text-danger' : 'border-1'}`}
         {...inputProps}
         {...register(name)}
       />
@@ -44,21 +47,32 @@ export const ShebakInput = ({
   );
 };
 
-
 export const ShebakInputIcon = ({
-  placeholder,
   icon,
   name,
   error,
   className,
   required,
   register,
+  control,
   ...inputProps
 }) => {
-
   return (
     <>
-      <Input size="large" placeholder={placeholder} prefix={icon}/>
+      <Controller
+        name={name}
+        control={control}
+        // defaultValue=""
+        render={({ field }) => (
+          <Input
+            {...field}
+            size="large"
+            placeholder="First Name"
+            prefix={icon}
+          />
+        )}
+      />
+      {/* <Input {...inputProps} /> */}
     </>
   );
 };

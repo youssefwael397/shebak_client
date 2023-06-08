@@ -1,27 +1,26 @@
-import React from "react";
-import styles from "../styles/Warnings.module.css";
-import "jquery/dist/jquery.min.js";
-import "datatables.net-dt/js/dataTables.dataTables";
-import "datatables.net-dt/css/jquery.dataTables.min.css";
-import $ from "jquery";
-import HeaderTop from "../components/HeaderTop";
-import Link from "next/link";
+import React from 'react';
+import styles from '../styles/Warnings.module.css';
+import 'jquery/dist/jquery.min.js';
+import 'datatables.net-dt/js/dataTables.dataTables';
+import 'datatables.net-dt/css/jquery.dataTables.min.css';
+import $ from 'jquery';
+import HeaderTop from '../components/HeaderTop';
+import Link from 'next/link';
 import { AudioOutlined, EyeOutlined } from '@ant-design/icons';
 import { Input, Table } from 'antd';
-import { useEffect, useState } from "react";
-import { newDataSet } from "../lib/users";
-import useSafqaTableSearch from "../lib/ShebakTableSearch";
-import { useDispatch, useSelector } from "react-redux";
-import { getUsers } from "../store/slices/userSlice";
-import ImgPreview from "../components/ImgPreview";
+import { useEffect, useState } from 'react';
+import { newDataSet } from '../lib/users';
+import useSafqaTableSearch from '../lib/ShebakTableSearch';
+import { useDispatch, useSelector } from 'react-redux';
+import { getUsers } from '../store/slices/userSlice';
+import ImgPreview from '../components/ImgPreview';
 const { Search } = Input;
 
 const UsersPage = () => {
-
-  const dispatch = useDispatch()
-  const { users, is_loading, imgPath } = useSelector(state => state.user)
+  const dispatch = useDispatch();
+  const { users, is_loading, imgPath } = useSelector((state) => state.user);
   const onSearch = (value) => console.log(value);
-  const { getColumnSearchProps } = useSafqaTableSearch()
+  const { getColumnSearchProps } = useSafqaTableSearch();
 
   const columns = [
     {
@@ -40,12 +39,12 @@ const UsersPage = () => {
       title: 'Face Image',
       dataIndex: 'photo',
       key: 'photo',
-      render: (_, user) =>
+      render: (_, user) => (
         <div div className="text-center mx-auto">
           <ImgPreview
             alt={user?.username}
             // src={`${imgPath}/${user?.photo}`}
-            src={"../images/person.jpg"}
+            src={'../images/person.jpg'}
           />
           {/* <img
             width="200"
@@ -53,6 +52,7 @@ const UsersPage = () => {
             src={`http://localhost:8000/${user.photo}`}
           /> */}
         </div>
+      ),
     },
     // {
     //   title: 'Warnings',
@@ -64,12 +64,13 @@ const UsersPage = () => {
       title: 'Show',
       dataIndex: 'show',
       key: 'show',
-      render: (_, user) =>
+      render: (_, user) => (
         <div className={`${styles.show} mx-auto`}>
-          <Link href={`/users/${user.id}`} >
+          <Link href={`/users/${user.id}`}>
             <EyeOutlined style={{ fontSize: '16px', color: '#66B4D2' }} />
           </Link>
         </div>
+      ),
     },
   ];
 
@@ -96,30 +97,29 @@ const UsersPage = () => {
       email: 'John@gmail.com',
     },
   ];
+  
 
 
   useEffect(() => {
     $(document).ready(function () {
-      $("#example").DataTable();
+      $('#example').DataTable();
     });
     //datepicker on change
-    $(".dateadded").on("change", function (ret) {
+    $('.dateadded').on('change', function (ret) {
       var v = ret.target.value; // getting search input value
 
-      $("#example").DataTable().columns(3).search(v).draw();
+      $('#example').DataTable().columns(3).search(v).draw();
     });
 
-    $("#example").DataTable({
+    $('#example').DataTable({
       //remove search lable dont forget ya mariem
-      language: { search: "" },
-
+      language: { search: '' },
     });
-  }, [])
-
+  }, []);
 
   useEffect(() => {
-    dispatch(getUsers())
-  }, [dispatch])
+    dispatch(getUsers());
+  }, [dispatch]);
 
   return (
     <>
@@ -139,7 +139,6 @@ const UsersPage = () => {
       </div>
     </>
   );
+};
 
-}
-
-export default UsersPage
+export default UsersPage;
