@@ -64,36 +64,32 @@ const WarningdInfo = ({ warning }) => {
 }
 
 export default function Warnings() {
-  const dispatch = useDispatch()
-  const router = useRouter()
+  const dispatch = useDispatch();
+  const router = useRouter();
   const { id } = router.query;
-  const { warning, is_loading, imgPath, api_errors } = useSelector(state => state.warning)
+  const { is_loading, imgPath, api_errors } = useSelector(
+    (state) => state.warning
+  );
 
-  // useEffect(() => {
-  //   newDataSet.length && newDataSet.map(warn => warn.id == id && setWarning(warn))
-  // }, [])
+  const warning = {
+    id: id,
+    status: 'Vilence',
+    date: '23/7/2001',
+    users: [
+      {
+        id: 1,
+        username: 'my girl ♥',
+      },
+      {
+        id: 2,
+        username: 'my girl ♥',
+      },
+      {
+        id: 3,
+        username: 'my girl ♥',
+      },
+    ],
+  };
 
-
-  useEffect(() => { console.log(warning) }, [warning])
-
-  useEffect(() => {
-    id && dispatch(getWarning(id))
-  }, [dispatch, id])
-
-  return (
-    <>
-      {is_loading && <LoadingSpin />}
-      {warning && <WarningdInfo warning={warning} />}
-      {api_errors &&
-        // <div className="position-absolute top-50 start-50 translate-middle">
-        <div className="p-4 w-100">
-          <div className="alert alert-danger text-center fs-6" role="alert">
-            404, {api_errors}
-          </div>
-        </div>
-      }
-    </>
-  )
-
-
+  return <>{warning && <WarningdInfo warning={warning} />}</>;
 }

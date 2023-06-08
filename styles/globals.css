@@ -229,7 +229,7 @@ thead:hover {
   background: transparent !important;
 }
 
-.ant-image-img{
+.img_button .ant-image-img{
   border: 1px solid #2f6782 !important;
   border-radius: 50% !important;
   padding: 6px !important;

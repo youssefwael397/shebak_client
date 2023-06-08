@@ -76,20 +76,27 @@ const UsersPage = () => {
   const dataSource = [
     {
       key: '1',
+      id: 1,
+
       username: 'Mike',
       email: 'Mike@gmail.com',
     },
     {
       key: '2',
+      id: 2,
+
       username: 'Johnnnn',
       email: 'Johnnnn@gmail.com',
     },
     {
       key: '3',
+      id: 3,
+
       username: 'John',
       email: 'John@gmail.com',
     },
   ];
+
 
   useEffect(() => {
     $(document).ready(function () {

@@ -32,7 +32,7 @@
   /* z-index: -2; */
 }
 
-.MainDiv.WarningsPage{
+.MainDiv.WarningsPage {
   font-family: "Tajawal";
   background-image: url("/images/bgWarning.jpg");
   -webkit-transform: scaleX(-1);
@@ -49,13 +49,13 @@
   /* z-index: -2; */
 }
 
-.MainDiv .table{
+.MainDiv .table {
   width: 77%;
   float: right;
   margin-top: 90px;
 }
 
-.WarningsPage .table{
+.WarningsPage .table {
   transform: rotateY(180deg);
   float: left;
 }
@@ -116,13 +116,34 @@
   border-radius: 10px;
 }
 
-.eye{
+.eye {
   display: none !important;
 }
 
-.img_button:hover .eye{
+.img_button:hover .eye {
   display: block !important;
   background: rgba(0, 0, 0, 0.5) !important;
   padding: 10px;
   border-radius: 50%;
+}
+
+.img_button_user .eye {
+  position: absolute;
+  top: 40px;
+  left: 37%;
+}
+
+.img_button_user:hover .eye {
+  display: block !important;
+  background: rgba(0, 0, 0, 0.5) !important;
+  padding: 10px;
+  border-radius: 50%;
+}
+
+.warningsUser{
+  background-color: #00000057;
+}
+.warningsUser a{
+  background-color: #2f6782 !important;
+  color: white !important;
 }

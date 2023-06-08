@@ -63,18 +63,22 @@ const WarningsPage = () => {
 
   const dataSource = [
     {
+      id: 1,
       status: 'Iwett',
       date: '23/7/2001',
     },
     {
+      id: 2,
       status: '2hfdh',
       date: '23/7/2002',
     },
     {
+      id: 3,
       status: '3dfhdh',
       date: '23/7/2003',
     },
     {
+      id: 4,
       status: 'fgdfh',
       date: '23/7/2004',
     },

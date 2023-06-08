@@ -8,11 +8,10 @@ import { Timeline } from "antd";
 import styles from "../../styles/Warnings.module.css";
 import { getUser } from "../../store/slices/userSlice";
 import { useDispatch, useSelector } from "react-redux";
-import ImgPreviewUser from "../../components/ImgPreviewUser";
+import ImgPreview from "../../components/ImgPreview";
 import { Alert, Space, Spin } from 'antd';
 import LoadingSpin from "../../components/LoadingSpin";
 import Link from "next/link";
-import { MailOutlined, UserOutlined } from "@ant-design/icons";
 
 const UserInfo = ({ user_warning }) => {
   const { is_loading, imgPath, api_errors } = useSelector(state => state.user)
@@ -22,36 +21,46 @@ const UserInfo = ({ user_warning }) => {
       <div className="container">
         <div className={`mt-5 mb-4 px-4 me-3 ${styles.warning}`}>
           <div className={`rounded-2`}>
-            <div className="d-flex">
-              <ImgPreviewUser
-                alt={user?.username}
-                // src={`${imgPath}/${user?.photo}`}
-                src="../images/person.jpg"
-              />
-              <div className="mt-5 ms-3 text-white fs-6">
-                <div className="d-flex align-items-center mt-1"><UserOutlined /> <span className=" ms-3">{user?.username} Nouran Ali</span></div>
-                <div className="d-flex align-items-center mt-3"><MailOutlined /><span className="ms-3">{user?.email} noran@gmail.com</span></div>
+            <h5 className={`mt-5 fs-5 text-white ${styles.title}`}>User info</h5>
+            <hr />
+            <div className="row">
+              <div className="col-xl-4 col-lg-4 col-md-6 col-sm-6">
+                <p className={styles.data}>Name</p>
+                <p className="text-white">{user?.username}</p>
               </div>
-            </div>
+              <div className="col-xl-8 col-lg-8 col-md-6 col-sm-6">
+                <p className={styles.data}>Email</p>
+                <p className="text-white">{user?.email}</p>
+              </div>
+              <div className="col-xl-4 col-lg-4 col-md-6 col-sm-6">
+                <p className={styles.data}>Face Image</p>
+                <ImgPreview
+                  alt={user?.username}
+                  // src={`${imgPath}/${user?.photo}`}
+                  src="../images/person.jpg"
+                />
+              </div>
+              <div className="col-xl-4 col-lg-4 col-md-6 col-sm-6">
+                <p className={styles.data}>Warnings{user?.warnings?.length}</p>
+                {warnings?.length > 0 ? <ul className="">
+                  {warnings.map((w, index) => <li key={index}><Link className="btn btn-secondary mb-2" href={`/warnings/${w.id}`} >{w.date}
+                    <br />
+                    status : violence
+                  </Link></li>)}</ul> :
+                  // eslint-disable-next-line react/no-unescaped-entities
+                  <p className={styles.data}>This user doesn't make any violence actions.</p>
+                }
+              </div>
 
-            <div className={`mt-5 fs-6 ms-3 w-75 rounded-4 p-4 ${styles.warningsUser}`}>
-              <p className="text-white ms-3">Warnings{user?.warnings?.length}</p>
-              {warnings?.length > 0 ? <ul className="ps-0 row text-center">
-                {
-                  warnings.map((w, index) =>
-                    <li key={index} className="list-group-item col-4">
-                      <Link className="btn mb-3 p-3 px-5" href={`/warnings/${w.id}`} >{w.date}
-                        <br />
-                        status : violence
-                      </Link>
-                    </li>
-                  )}</ul>
-                :
-                // eslint-disable-next-line react/no-unescaped-entities
-                <p className={styles.data}>This user doesn't make any violence actions.</p>
-              }
-            </div>
 
+              {/* <div className="col-xl-4 col-lg-4 col-md-6 col-sm-6">
+                    <p>Warnings</p>
+                    <div className="text-gray-400">
+                      {user?.warnings}
+                    </div>
+                  </div> */}
+
+            </div>
           </div>
         </div>
       </div>
