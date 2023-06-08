@@ -17,7 +17,7 @@
   padding: 5px;
 }
 
-.MainDiv {
+.MainDiv.UsersPage {
   font-family: "Tajawal";
   background-image: url("/images/bgUser.png");
   /* background-color: #152d39 !important; */
@@ -50,9 +50,11 @@
 }
 
 .MainDiv .table {
-  width: 77%;
+  width: 75%;
   float: right;
-  margin-top: 90px;
+  margin-right: 20px;
+  margin-left: 20px;
+  margin-top: 115px;
 }
 
 .WarningsPage .table {
@@ -72,6 +74,14 @@
 
 .show a {
   margin-top: 3px;
+}
+
+.delete {
+  background-color: #a53d3d;
+}
+
+.delete a span {
+  color: white !important;
 }
 
 .all {
@@ -95,6 +105,10 @@
   line-height: 2;
 }
 
+.warning {
+  margin-top: 110px;
+}
+
 .warning p {
   font-size: 16px;
 }
@@ -102,8 +116,16 @@
 .warning hr {
   border: 1px solid #66b4d217;
   opacity: 1;
+  width: 100%;
+}
+
+.warningsUser hr {
+  border: 1px solid #66b4d217;
+  opacity: 1;
   width: 30%;
 }
+
+
 
 .user_video {
   width: 543px;
@@ -113,8 +135,9 @@
   /* filter: blur(8px);
   -webkit-filter: blur(8px); */
   /* width: 330px; */
-  background-color: #11283475;
+  /* background-color: #11283475; */
   border-radius: 10px;
+  /* margin-left: 300px; */
 }
 
 .eye {
@@ -144,16 +167,22 @@
 /* .warningsUser{
   background-color: #00000057;
 } */
-.warningsUser a{
+.warningsUser a {
   background-color: #00000057 !important;
   color: white !important;
 }
 
-.warningsUser .title{
+.warningsUser .title,
+.warning .title {
   color: #438db1;
 }
 
-.warningsUser {
+.warning .download{
+  color: #72a2ba;
+}
+
+.warningsUser,
+.warnings {
   font-family: "Tajawal";
   background-image: url("/images/bg.jpeg");
   /* background-color: #152d39 !important; */
@@ -166,4 +195,23 @@
   right: 0;
   bottom: 0;
   /* z-index: -2; */
+}
+
+.one_warning{
+  font-family: "Tajawal";
+  background-image: url("/images/bg.jpeg");
+  /* background-color: #152d39 !important; */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  /* z-index: -2; */
+}
+
+.one_warning .warning{
+  padding: 0px 346px;
 }

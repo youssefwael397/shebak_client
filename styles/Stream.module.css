@@ -14,8 +14,9 @@
 }
 
 .cont_video {
-    /* margin-left: -112px; */
+    margin-left: 120px;
     /* z-index: -2; */
+    margin-top: 30px;
 }
 
 .switch {
@@ -23,8 +24,8 @@
 }
 
 .wstream {
-    width: 650px;
-    height: 455.5px;
+    width: 630px;
+    height: 435.5px;
     background-color: black;
 }
 

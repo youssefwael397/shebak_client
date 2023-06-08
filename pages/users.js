@@ -6,7 +6,7 @@ import 'datatables.net-dt/css/jquery.dataTables.min.css';
 import $ from 'jquery';
 import HeaderTop from '../components/HeaderTop';
 import Link from 'next/link';
-import { AudioOutlined, EyeOutlined } from '@ant-design/icons';
+import { AudioOutlined, DeleteOutlined, EyeOutlined } from '@ant-design/icons';
 import { Input, Table } from 'antd';
 import { useEffect, useState } from 'react';
 import { newDataSet } from '../lib/users';
@@ -61,14 +61,21 @@ const UsersPage = () => {
     //   ...getColumnSearchProps('warnings'),
     // },
     {
-      title: 'Show',
+      title: 'Actions',
       dataIndex: 'show',
       key: 'show',
       render: (_, user) => (
-        <div className={`${styles.show} mx-auto`}>
-          <Link href={`/users/${user.id}`}>
-            <EyeOutlined style={{ fontSize: '16px', color: '#66B4D2' }} />
-          </Link>
+        <div className='d-flex justify-content-center align-items-center'>
+          <div className={`${styles.show} me-3`}>
+            <Link href={`/users/${user.id}`}>
+              <EyeOutlined style={{ fontSize: '16px', color: '#66B4D2' }} />
+            </Link>
+          </div>
+          <div className={`${styles.show} ${styles.delete} text-white`}>
+            <Link href={`/users/${user.id}`}>
+              <DeleteOutlined style={{ fontSize: '16px', color: '#66B4D2' }} />
+            </Link>
+          </div>
         </div>
       ),
     },
@@ -96,8 +103,15 @@ const UsersPage = () => {
       username: 'John',
       email: 'John@gmail.com',
     },
+    {
+      key: '4',
+      id: 4,
+
+      username: 'John',
+      email: 'John@gmail.com',
+    },
   ];
-  
+
 
 
   useEffect(() => {
@@ -123,7 +137,7 @@ const UsersPage = () => {
 
   return (
     <>
-      <div className={`${styles.MainDiv} px-4 me-3`}>
+      <div className={`${styles.MainDiv} ${styles.UsersPage} px-4`}>
         {/* <div className="warnings mt-5">
           <HeaderTop title="Users" />
         </div> */}

@@ -10,8 +10,8 @@ const ImgPreview = ({ src, alt }) => {
             <Button type="primary" className={`position-relative mx-auto d-flex justify-content-center align-items-center rounded-circle img_button ${styles.img_button}`} onClick={() => setVisible(true)}>
                 <Image
                     alt={alt}
-                    width={44}
-                    height={44}
+                    width={50}
+                    height={50}
                     className='rounded-circle'
                     src={src}
                     preview={{

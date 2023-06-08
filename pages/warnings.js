@@ -108,7 +108,7 @@ const WarningsPage = () => {
 
   return (
     <>
-      <div className={`${styles.MainDiv} ${styles.WarningsPage} warningspage px-4 me-3`}>
+      <div className={`${styles.MainDiv} ${styles.WarningsPage} warningspage px-4`}>
 
         {/* <div className="warnings mt-5">
           <HeaderTop title="Warnings History" />

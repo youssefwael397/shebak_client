@@ -156,14 +156,14 @@ const FormStepTwo = ({ setStep, formInfo, setFormInfo }) => {
         >
           <Button
             onClick={() => setStep(1)}
-            className={`${styles.btn} me-4 text-white border-0 rounded-4 px-5 fs-6`}
+            className={` ${styles.previous} me-4 text-white border-0 rounded-4 px-5 fs-6`}
             htmlType="button"
           >
             Previous
           </Button>
 
           <Button
-            className={`border-0 rounded-4 px-5 fs-6 ${styles.disabled}`}
+            className={`border-0 rounded-4 px-5 fs-6 ${styles.btn}`}
             htmlType="submit"
             // disabled
           >

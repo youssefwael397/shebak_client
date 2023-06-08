@@ -7,7 +7,7 @@ import "react-html5video/dist/styles.css";
 import BreadCrumb from "../../components/BreadCrumb";
 import { Timeline } from "antd";
 import styles from "../../styles/Warnings.module.css";
-import { ClockCircleOutlined, FileSearchOutlined, Html5Filled } from "@ant-design/icons";
+import { CalendarOutlined, ClockCircleOutlined, DownloadOutlined, FileSearchOutlined, Html5Filled } from "@ant-design/icons";
 import LoadingSpin from "../../components/LoadingSpin";
 import { getWarning } from "../../store/slices/warningSlice";
 import { useDispatch, useSelector } from "react-redux";
@@ -22,28 +22,51 @@ const WarningdInfo = ({ warning }) => {
   return (
     <div className='bg-gray-800 h-screen p-16 text-gray-100'>
       <div className="container">
-        <div className={`mt-5 mb-4 px-4 me-3 ${styles.warning}`}>
-          <h5 className={`mt-5 fs-5 text-white ${styles.title}`}>Warning info</h5>
-          <hr />
-          <div className={styles.all}>
-            <div className={`App `}>
-              <div className={`mt-3 fs-5 ${styles.data}`}>
-                <div className="text-gray-400 d-flex align-items-center">
-                  <FileSearchOutlined className="me-2" style={{ color: "#72a2ba" }} />
-                  Detected Status : Violence
+        <div className={` ${styles.one_warning}`}>
+          <div className={`mb-4 ${styles.warning}`}>
+
+            <h5 className={`mt-5 fs-5 ${styles.title}`}>Warning info</h5>
+            <hr />
+            <div className={``}>
+              <div className="text-white">
+                <div className={`mt-3 fs-5`}>
+                  <div className="text-gray-400 d-flex align-items-center">
+                    <FileSearchOutlined className="me-2" style={{ color: "#72a2ba" }} />
+                    Detected Status : Violence
+                  </div>
+                </div>
+                <div className={`mt-3 fs-5`}>
+                  <div className="text-gray-400 d-flex align-items-center">
+                    <CalendarOutlined className="me-2" style={{ color: "#72a2ba" }} />
+                    Date : 23/7/2022 12:00
+                  </div>
+                </div>
+                <div className={`mt-3 fs-5`}>
+                  <div className={`text-gray-400 d-flex align-items-center text-decoration-underline ${styles.download}`}>
+                    <DownloadOutlined className="me-2" style={{ color: "#72a2ba" }} />
+                    Download Video
+                  </div>
                 </div>
               </div>
-              <div className={`mt-3  p-5 ${styles.blur}`}>
-                
+
+              <h5 className={`mt-5 fs-5 ${styles.title}`}>Users in Video</h5>
+              <hr />
+
+              <div className={`mt-3`}>
                 <div className="text-gray-400">
-                  <h4 className="text-white">Users in Video</h4>
-                 
                   {
                     warning.users?.length > 0 ?
-                      <ol className="m-0">
+                      <ol className="m-0 p-0">
                         {warning.users.map(user =>
-                          <li key={user.id} className={`m-0 text-white d-block my-3`}>
-                            <Link className="text-white btn btn-secondary" href={`/users/${user.id}`}>{user.username}</Link>
+                          <li key={user.id} className={`m-0 text-white d-block my-3 d-flex align-items-center img_warning`}>
+                            <div>
+                              <ImgPreview
+                                alt={user?.username}
+                                // src={`${imgPath}/${user?.photo}`}
+                                src="../images/person.jpg"
+                              />
+                            </div>
+                            <Link className="text-white text-decoration-underline" href={`/users/${user.id}`}>{user.username}</Link>
                           </li>)}
                       </ol>
                       // eslint-disable-next-line react/no-unescaped-entities
@@ -54,9 +77,6 @@ const WarningdInfo = ({ warning }) => {
               </div>
             </div>
           </div>
-
-
-
         </div>
       </div>
     </div>
