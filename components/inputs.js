@@ -67,8 +67,8 @@ export const ShebakInputIcon = ({
           <Input
             {...field}
             size="large"
-            placeholder="First Name"
             prefix={icon}
+            {...inputProps}
           />
         )}
       />
