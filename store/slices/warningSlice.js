@@ -91,13 +91,13 @@ export const warningSlice = createSlice({
             state.is_loading = false;
             state.is_success = true;
             state.api_errors = null;
-            state.warning = {users : payload};
+            state.warning = payload;
             console.log(payload);
         },
         [getWarning.rejected]: (state, { payload }) => {
             state.is_loading = false;
             state.is_success = false;
-            state.api_errors = payload.response.data?.message;
+            state.api_errors = payload?.response?.data?.message;
         },
         // get extracted faces
         [extractFaces.pending]: (state, { payload }) => {

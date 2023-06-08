@@ -28,6 +28,20 @@ export const getUser = createAsyncThunk(
   }
 );
 
+export const deleteUser = createAsyncThunk(
+  'user/delete',
+  async (id, { rejectWithValue, dispatch }) => {
+    try {
+      const url = `/api/users/${id}`;
+      const res = await axiosInstance.delete(url);
+      dispatch(getUsers());
+      return res.data;
+    } catch (err) {
+      return rejectWithValue(err);
+    }
+  }
+);
+
 const initialState = {
   is_loading: false,
   is_success: false,
@@ -72,6 +86,27 @@ export const userSlice = createSlice({
       state.user_warning = payload;
     },
     [getUser.rejected]: (state, { payload }) => {
+      state.is_loading = false;
+      state.is_success = false;
+      state.user_warning = null;
+      state.api_errors = payload?.response?.data?.message;
+    },
+    // delete user
+    [deleteUser.pending]: (state, { payload }) => {
+      state.is_loading = true;
+      state.user_warning = null;
+    },
+    [deleteUser.fulfilled]: (state, { payload }) => {
+      state.is_loading = false;
+      state.is_success = true;
+      state.api_errors = null;
+      NotifyMessage({
+        type: 'success',
+        title: 'Delete User',
+        description: payload.message,
+      });
+    },
+    [deleteUser.rejected]: (state, { payload }) => {
       state.is_loading = false;
       state.is_success = false;
       state.user_warning = null;

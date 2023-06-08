@@ -12,7 +12,7 @@ import { useEffect, useState } from 'react';
 import { newDataSet } from '../lib/users';
 import useSafqaTableSearch from '../lib/ShebakTableSearch';
 import { useDispatch, useSelector } from 'react-redux';
-import { getUsers } from '../store/slices/userSlice';
+import { deleteUser, getUsers } from '../store/slices/userSlice';
 import ImgPreview from '../components/ImgPreview';
 const { Search } = Input;
 
@@ -65,14 +65,14 @@ const UsersPage = () => {
       dataIndex: 'show',
       key: 'show',
       render: (_, user) => (
-        <div className='d-flex justify-content-center align-items-center'>
+        <div className="d-flex justify-content-center align-items-center">
           <div className={`${styles.show} me-3`}>
             <Link href={`/users/${user.id}`}>
               <EyeOutlined style={{ fontSize: '16px', color: '#66B4D2' }} />
             </Link>
           </div>
           <div className={`${styles.show} ${styles.delete} text-white`}>
-            <Link href={`/users/${user.id}`}>
+            <Link href={"#"} onClick={() => dispatch(deleteUser(user.id))}>
               <DeleteOutlined style={{ fontSize: '16px', color: '#66B4D2' }} />
             </Link>
           </div>

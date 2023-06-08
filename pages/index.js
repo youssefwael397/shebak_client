@@ -73,7 +73,7 @@ const Stream = () => {
                     >
                       {/* <div>Socket Connected</div> */}
 
-                      {is_loading || !open ? (
+                      {!open ? (
                         <div
                           className={`${styles.wstream} d-flex justify-content-center align-items-center rounded-4 border border-dark `}
                         >
@@ -113,7 +113,7 @@ const Stream = () => {
                       <p className={`me-3 ms-2 ${!open ? '' : 'text-white-50'}`}>
                         Stop
                       </p>
-                      <Switch onChange={toggleStream} className={styles.switch} />
+                      <Switch onChange={toggleStream} checked={open} className={styles.switch} />
                       <p className={`ms-2 mt-3 ${open ? '' : 'text-white-50'}`}>
                         Play
                       </p>
