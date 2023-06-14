@@ -26,7 +26,7 @@ const UserInfo = ({ user_warning }) => {
           <div className={`rounded-2`}>
             <div className={`mt-5 fs-6 ${styles.warningsUser}`}>
               <div className="d-flex justify-content-center">
-                <div>
+                <div className='mx-auto'>
                   <ImgPreviewUser
                     alt={user?.username}
                     src={`${imgPath}/${user?.photo}`}

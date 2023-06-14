@@ -125,7 +125,15 @@ const WarningsPage = () => {
         <br />
 
         <div className={styles.table}>
-          <Table columns={columns} dataSource={warnings} loading={is_loading} />
+          <Table
+            columns={columns}
+            dataSource={warnings}
+            loading={is_loading}
+            pagination={{
+              position: [`bottomRight`],
+              pageSize: '5',
+            }}
+          />
         </div>
       </div>
     </>

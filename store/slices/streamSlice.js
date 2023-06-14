@@ -6,7 +6,7 @@ export const startStream = createAsyncThunk(
     "stream/start",
     async (args, { rejectWithValue }) => {
         try {
-            const url = "/stream/start";
+            const url = "/stream";
             const res = await axiosInstance.get(url);
             return res.data;
         } catch (err) {

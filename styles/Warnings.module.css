@@ -144,15 +144,15 @@
   display: none !important;
 }
 
-.img_button:hover .eye {
+/* .img_button:hover .eye {
   display: block !important;
   background: rgba(0, 0, 0, 0.5) !important;
   padding: 10px;
   border-radius: 50%;
-}
+} */
 
 .img_button_user .eye {
-  position: absolute;
+  position: absolute !important;
   top: 40px;
   left: 37%;
 }
